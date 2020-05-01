@@ -1,0 +1,132 @@
+@media(max-width: 1024px){
+	/* //ipad pro */
+}
+
+@media(max-width: 768px){
+	/* //ipad */
+	.log-in{
+		text-align: center;
+		margin-top: -20px;
+	}
+	.block-content{
+		margin-top: 50px;
+	}
+	.nav-bar{
+		display:none;
+	}
+	.contact-form{
+		margin-top: 30px;
+	}
+	.contact-addr{
+		margin-right: 25px;
+	}
+	.block-sign-up button{
+		margin-top: -20px;
+    	margin-bottom: 25px;
+	}
+
+}
+@media(max-width: 600px){
+	/* body{
+		display: none;
+    } */
+	/* // dt */
+/* -----------------------------------header----------------------- */
+	.menu-bars{
+		padding-top: 15px;
+		display: block;
+		border: none;
+		background-color: transparent;
+		color: #f6bc1e;
+		font-size: 24px;
+	}
+	.header-cover-1 ul li{
+		float: none;
+		text-align: center;
+	}
+	.header-cover-1 .menu{
+		display: none;
+		margin-top: -55px;
+	}
+	.header-cover-1 .open-mobile-menu{
+		padding-left: 0px;
+		padding-top: 15px;
+		display: block;
+		height: auto;
+		opacity: 1.0;
+		transition: all 3s;
+	}
+	.header-cover-1 .col-md-3{
+        position: initial;
+        text-align: center;
+	}
+	.header-cover-1{
+		position: relative;
+	}
+	.log-in{
+		position: initial;
+		padding: 8px;
+		margin-top: -25px;
+    }
+	.log-in a{
+		position: absolute;
+		top: 10px;
+		right: 15px;
+    }
+    .log-in .sign{
+        position: initial;
+	}
+/* -----------------------------------header----------------------- */
+
+/* -----------------------------------home----------------------- */
+	.home-slide{
+		display:none;
+	}
+
+/* -----------------------------------home----------------------- */
+/* -----------------------------------about-us----------------------- */
+	.nav-bar{
+		display: none;
+	}
+/* -----------------------------------about-us----------------------- */
+/* -----------------------------------contact-us----------------------- */
+	.contact-form{
+		margin-top: 30px;
+	}
+/* -----------------------------------contact-us----------------------- */
+
+/* -----------------------------------sign-in----------------------- */
+	.block-sign-in{
+		width: auto;
+	}
+/* -----------------------------------sign-in----------------------- */
+/* -----------------------------------sign-up----------------------- */
+	.block-sign-up button{
+		margin-top: -45px;
+	}
+/* -----------------------------------sign-up----------------------- */
+
+/* -----------------------------------test----------------------- */
+	.block-content{
+		margin-top: 50px;
+	}
+	.panel-body img{
+		width: 90%;
+	}
+	div.scrollmenu {
+		overflow: auto;
+		white-space: nowrap;
+	}
+	div.scrollmenu a {
+		display: inline-block;
+		text-align: center;
+		padding: 14px;
+		text-decoration: none;
+	}
+	.question-pallete{
+		position: relative;
+	}
+
+/* -----------------------------------test----------------------- */
+
+}
