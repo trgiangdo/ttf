@@ -113,7 +113,7 @@
                                     <span id="instructions">
                                         <p> <b>Directions:</b> Listen to these questions and statements. After each question or statement, you will hear three responses. Select the most appropriate response. Mark your answer by clicking (A), (B), or (C). You will hear each question or statement, and the responses, only once.</p>
                                         <p><b>Example:</b></p>
-                                        <p>{{$listenings_part2->example()->example}}</p>
+                                        <p>{!!$listenings_part2->example->example!!}</p>
                                     </span>
                                 </div>
                                 <hr>

@@ -1979,14 +1979,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      exam_type: "0",
-      numQuestionPart1: 0,
-      numQuestionPart2: 0,
-      numQuestionPart3: 0,
-      numQuestionPart4: 0,
-      numQuestionPart5: 0,
-      numParagraphPart6: 0,
-      numParagraphPart7: 0
+      exam_type: 1,
+      numQuestionPart1: 1,
+      numQuestionPart2: 1,
+      numQuestionPart3: 1,
+      numQuestionPart4: 1,
+      numQuestionPart5: 1,
+      numParagraphPart6: 1,
+      numParagraphPart7: 1
     };
   },
   methods: {
@@ -2588,6 +2588,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -38857,7 +38858,7 @@ var render = function() {
       _vm._v(" "),
       _c("input", {
         attrs: { type: "number", name: "startPart2", hidden: "" },
-        domProps: { value: _vm.startAt }
+        domProps: { value: Number(_vm.startAt + 1) }
       })
     ]),
     _vm._v(" "),
@@ -39033,7 +39034,7 @@ var render = function() {
       _vm._v(" "),
       _c("input", {
         attrs: { type: "number", name: "startPart3", hidden: "" },
-        domProps: { value: _vm.startAt }
+        domProps: { value: Number(_vm.startAt + 1) }
       })
     ]),
     _vm._v(" "),
@@ -39274,7 +39275,7 @@ var render = function() {
       _vm._v(" "),
       _c("input", {
         attrs: { type: "number", name: "startPart4", hidden: "" },
-        domProps: { value: _vm.startAt }
+        domProps: { value: Number(_vm.startAt + 1) }
       })
     ]),
     _vm._v(" "),
@@ -39515,7 +39516,7 @@ var render = function() {
       _vm._v(" "),
       _c("input", {
         attrs: { type: "number", name: "startPart5", hidden: "" },
-        domProps: { value: _vm.startAt }
+        domProps: { value: Number(_vm.startAt + 1) }
       })
     ]),
     _vm._v(" "),
@@ -39745,7 +39746,7 @@ var render = function() {
       _vm._v(" "),
       _c("input", {
         attrs: { type: "number", name: "startPart6", hidden: "" },
-        domProps: { value: _vm.startAt }
+        domProps: { value: Number(_vm.startAt + 1) }
       })
     ]),
     _vm._v(" "),
@@ -40047,7 +40048,12 @@ var render = function() {
       _vm._v(" "),
       _c("input", {
         attrs: { type: "number", name: "startPart7", hidden: "" },
-        domProps: { value: _vm.startAt }
+        domProps: { value: Number(_vm.startAt + 1) }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "number", name: "numParaPart7", hidden: "" },
+        domProps: { value: _vm.numParagraph }
       })
     ]),
     _vm._v(" "),
@@ -40093,7 +40099,7 @@ var render = function() {
                     staticClass: "form-control",
                     attrs: {
                       type: "number",
-                      min: "0",
+                      min: "1",
                       name: "part7_numQuestions[" + para + "]",
                       require: ""
                     },
