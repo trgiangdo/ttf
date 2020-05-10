@@ -114,3 +114,11 @@
     <!-- ----------  schools  ---------- -->
 </main>
 @endsection
+
+
+@section('scripts')
+
+<script src="js/slick/slick.js"></script>
+<script src="js/style.js"></script>
+
+@endsection

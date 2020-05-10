@@ -24,15 +24,11 @@
 
 <body>
     @include('components.header')
-
 	@yield('content')
-
     @include('components.footer')
 
     <script src="js/jquery/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
-    <script src="js/slick/slick.js"></script>
-    <script src="js/style.js"></script>
 
     @yield('scripts')
 </body>

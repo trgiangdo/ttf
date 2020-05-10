@@ -18,16 +18,16 @@
                     Sorry, your browser doesn't support HTML 5
                 </audio>
                 <ul id="playlist" class="hidden">
-                    <li class="current-song"><a href="{{ $listenings_part1->audio_url }}"></a></li>
-                    <li><a href="{{ $listenings_part2->audio_url }}"></a></li>
-                    <li><a href="{{ $listenings_part3->audio_url }}"></a></li>
-                    <li><a href="{{ $listenings_part4->audio_url }}"></a></li>
+                    <li class="current-song"><a href="/upload_audio/part1/{{ asset("storage/part1_audio/$listenings_part1->audio_url") }}"></a></li>
+                    <li><a href="/upload_audio/part2/{{ asset("storage/part2_audio/$listenings_part2->audio_url") }}"></a></li>
+                    <li><a href="/upload_audio/part3/{{ asset("storage/part3_audio/$listenings_part3->audio_url") }}"></a></li>
+                    <li><a href="/upload_audio/part4/{{ asset("storage/part4_audio/$listenings_part4->audio_url") }}"></a></li>
                 </ul>
                 <div class="panel panel-purple">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#part1">Part 1</a></li>
-                        <li><a data-toggle="tab" href="#part2" >Part 2</a></li>
-                        <li><a data-toggle="tab" href="#part3" >Part 3</a></li>
+                        <li><a data-toggle="tab" href="#part2">Part 2</a></li>
+                        <li><a data-toggle="tab" href="#part3">Part 3</a></li>
                         <li><a data-toggle="tab" href="#part4">Part 4</a></li>
                         <li><a data-toggle="tab" href="#part5">Part 5</a></li>
                         <li><a data-toggle="tab" href="#part6">Part 6</a></li>
@@ -47,7 +47,7 @@
                                     <div id="testheader">
                                         <span id="instructions">
                                             <p> <b>Directions:</b> For each question in this part, you will hear four statements about a picture in your test book. When you hear the statements, you must select the one statement that best describes what you see in the picture. Then find the number of the question on your answer sheet and mark your answer. The statements will not be printed in your test book and will be spoken only one time. Look at the example below.</p>
-                                            <img style="width: 250px; height: 100%; float: left;" src="{{$listenings_part1->example->image_url}}" alt="Example Image"/>
+                                            <img style="width: 250px; height: 100%; float: left;" src="{{asset("storage/images/$listenings_part1->example()->image_url")}}" alt="Example Image"/>
                                             <p></p>
                                             <p>{!!$listenings_part1->example->example!!}</p>
                                         </span>
@@ -62,7 +62,7 @@
                                         <b> Question {{ $loop->iteration }}:</b>
                                         <div class="clearfix"></div>
                                         <br>
-                                        <img style="width: 250px; height: 100%; float: left;" src="{{$part1->image_url}}" alt="">
+                                        <img style="width: 250px; height: 100%; float: left;" src="{{asset("storage/images/$part1->image_url")}}" alt="">
                                         <div class="choices" style="float: left;">
                                             <ul class="list-question">
                                                 <li>
@@ -113,7 +113,7 @@
                                     <span id="instructions">
                                         <p> <b>Directions:</b> Listen to these questions and statements. After each question or statement, you will hear three responses. Select the most appropriate response. Mark your answer by clicking (A), (B), or (C). You will hear each question or statement, and the responses, only once.</p>
                                         <p><b>Example:</b></p>
-                                        <p>{{$listenings_part2->example->example}}</p>
+                                        <p>{{$listenings_part2->example()->example}}</p>
                                     </span>
                                 </div>
                                 <hr>
@@ -270,7 +270,7 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     <i class="fa fa-question"></i>
-                                    TOEIC® Reading part 5 : Incomplete sentences
+                                    TOEIC® Reading part 5: Incomplete sentences
                                 </h3>
                             </div>
                             <div class="panel-body">
@@ -328,7 +328,7 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     <i class="fa fa-question"></i>
-                                    TOEIC® Reading part 6 : Incomplete sentences
+                                    TOEIC® Reading part 6: Incomplete sentences
                                 </h3>
                             </div>
                             <div class="panel-body">
@@ -389,7 +389,7 @@
                             <div class="panel-heading">
                             <h3 class="panel-title">
                                 <i class="fa fa-question"></i>
-                                TOEIC® Reading part 7 : Comprehension
+                                TOEIC® Reading part 7: Comprehension
                             </h3>
                             </div>
                             <div class="panel-body">
