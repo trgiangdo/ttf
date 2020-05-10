@@ -160,7 +160,7 @@ class ExamController extends Controller
             ]);
         }
 
-        for ($para = 1; $para < ($request->startPart7-$request->startPart6)/3; $para++) {
+        for ($para = 1; $para <= ($request->startPart7-$request->startPart6)/3; $para++) {
             $part6 = $exam->readings()->create([
                 'paragraph' => $request->part6_paragraph[$para],
                 'Part' => '6'
@@ -179,7 +179,7 @@ class ExamController extends Controller
         }
 
         $startOfThisPara = $request->startPart7;
-        for ($para = 1; $para < $request->numParaPart7; $para++) {
+        for ($para = 1; $para <= $request->numParaPart7; $para++) {
             $part7 = $exam->readings()->create([
                 'paragraph' => $request->part7_paragraph[$para],
                 'Part' => '7'
@@ -200,6 +200,8 @@ class ExamController extends Controller
             }
             $startOfThisPara += $request->part7_numQuestions[$para];
         }
+
+        return redirect()->back()->with('status', __('message.edited'));
     }
 
     /**
