@@ -28,6 +28,7 @@ class StoreExamRequest extends FormRequest
         return [
             'exam_name' => 'required|unique:exams,name',
             'exam_type' => 'required',
+            'part1_example_image' => 'required|image',
             'part1_audio' => 'required',
             'part2_audio' => 'required',
             'part3_audio' => 'required',

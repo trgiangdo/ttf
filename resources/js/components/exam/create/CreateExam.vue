@@ -7,12 +7,7 @@
                     <div class="col-md-8 col-lg-8 col-lg-offset-2">
                         <div class="form-group">
                             <label>Tên đề thi</label>
-                            <input type="text" name="exam_name" placeholder="Tên đề thi" class="form-control" required>
-                            <!-- @error('email')
-                            <div class="alert alert-danger">
-                                <strong>{{ $message }}</strong>
-                            </div>
-                            @enderror -->
+                            <input type="text" name="exam_name" placeholder="Tên đề thi" class="form-control" value="Demo" required>
                         </div>
                         <div class="form-group">
                             <label>Loại đề thi</label>
@@ -41,12 +36,12 @@
             <div class="clearfix"></div>
             <div class="tab-content">
                 <create-part1 :numQuestion="numQuestionPart1" :questionTypes="getQuestionTypes(1)"></create-part1>
-                <create-part2 :numQuestion="numQuestionPart2" :questionTypes="getQuestionTypes(2)" :startAt="numQuestionPart1"></create-part2>
-                <create-part3 :numQuestion="numQuestionPart3" :questionTypes="getQuestionTypes(3)" :startAt="this.numQuestionPart1 + this.numQuestionPart2"></create-part3>
-                <create-part4 :numQuestion="numQuestionPart4" :questionTypes="getQuestionTypes(4)" :startAt="this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3"></create-part4>
-                <create-part5 :numQuestion="numQuestionPart5" :questionTypes="getQuestionTypes(5)" :startAt="this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4"></create-part5>
-                <create-part6 :numParagraph="numParagraphPart6" :questionTypes="getQuestionTypes(6)" :startAt="this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4 + this.numQuestionPart5"></create-part6>
-                <create-part7 :numParagraph="numParagraphPart7" :questionTypes="getQuestionTypes(7)" :startAt="this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4 + this.numQuestionPart5 + this.numParagraphPart6*3"></create-part7>
+                <create-part2 :numQuestion="numQuestionPart2" :questionTypes="getQuestionTypes(2)" :startAt="1 + numQuestionPart1"></create-part2>
+                <create-part3 :numQuestion="numQuestionPart3" :questionTypes="getQuestionTypes(3)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2"></create-part3>
+                <create-part4 :numQuestion="numQuestionPart4" :questionTypes="getQuestionTypes(4)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3"></create-part4>
+                <create-part5 :numQuestion="numQuestionPart5" :questionTypes="getQuestionTypes(5)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4"></create-part5>
+                <create-part6 :numParagraph="numParagraphPart6" :questionTypes="getQuestionTypes(6)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4 + this.numQuestionPart5"></create-part6>
+                <create-part7 :numParagraph="numParagraphPart7" :questionTypes="getQuestionTypes(7)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4 + this.numQuestionPart5 + this.numParagraphPart6*3"></create-part7>
             </div>
         </div>
     </div>

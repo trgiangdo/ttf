@@ -11,4 +11,5 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/create_exam.js', 'public/assets/js/vue');
+mix.js('resources/js/create_exam.js', 'public/assets/js/vue')
+   .js('resources/js/edit_exam.js', 'public/assets/js/vue');

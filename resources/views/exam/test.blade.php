@@ -47,7 +47,7 @@
                                     <div id="testheader">
                                         <span id="instructions">
                                             <p> <b>Directions:</b> For each question in this part, you will hear four statements about a picture in your test book. When you hear the statements, you must select the one statement that best describes what you see in the picture. Then find the number of the question on your answer sheet and mark your answer. The statements will not be printed in your test book and will be spoken only one time. Look at the example below.</p>
-                                            <img style="width: 250px; height: 100%; float: left;" src="{{asset("storage/images/$listening_part1->example()->image_url")}}" alt="Example Image"/>
+                                            <img style="width: 250px; height: 100%; float: left;" src="{{asset("storage/images/$listening_part1->example->image_url")}}" alt="Example Image"/>
                                             <p></p>
                                             <p>{!!$listening_part1->example->example!!}</p>
                                         </span>

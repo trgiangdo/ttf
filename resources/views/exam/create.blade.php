@@ -16,6 +16,16 @@
         </div>
     @endif
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="container test">
         <form action="{{ route('exam.store') }}" method="POST" enctype="multipart/form-data" accept-charset="utf-8" id="create_exam">
             @csrf

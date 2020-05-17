@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1899,15 +1899,16 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/CreateExam.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/CreateExam.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditExam.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditExam.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -1959,65 +1960,67 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    'create-part1': __webpack_require__(/*! ./createPart1 */ "./resources/js/components/exam/create/createPart1.vue")["default"],
-    'create-part2': __webpack_require__(/*! ./createPart2 */ "./resources/js/components/exam/create/createPart2.vue")["default"],
-    'create-part3': __webpack_require__(/*! ./createPart3 */ "./resources/js/components/exam/create/createPart3.vue")["default"],
-    'create-part4': __webpack_require__(/*! ./createPart4 */ "./resources/js/components/exam/create/createPart4.vue")["default"],
-    'create-part5': __webpack_require__(/*! ./createPart5 */ "./resources/js/components/exam/create/createPart5.vue")["default"],
-    'create-part6': __webpack_require__(/*! ./createPart6 */ "./resources/js/components/exam/create/createPart6.vue")["default"],
-    'create-part7': __webpack_require__(/*! ./createPart7 */ "./resources/js/components/exam/create/createPart7.vue")["default"]
-  },
-  props: {
-    question_type: {
-      require: true
-    }
+    'edit-part1': __webpack_require__(/*! ./EditPart1 */ "./resources/js/components/exam/edit/EditPart1.vue")["default"],
+    'edit-part2': __webpack_require__(/*! ./EditPart2 */ "./resources/js/components/exam/edit/EditPart2.vue")["default"],
+    'edit-part3': __webpack_require__(/*! ./EditPart3 */ "./resources/js/components/exam/edit/EditPart3.vue")["default"],
+    'edit-part4': __webpack_require__(/*! ./EditPart4 */ "./resources/js/components/exam/edit/EditPart4.vue")["default"],
+    'edit-part5': __webpack_require__(/*! ./EditPart5 */ "./resources/js/components/exam/edit/EditPart5.vue")["default"],
+    'edit-part6': __webpack_require__(/*! ./EditPart6 */ "./resources/js/components/exam/edit/EditPart6.vue")["default"],
+    'edit-part7': __webpack_require__(/*! ./EditPart7 */ "./resources/js/components/exam/edit/EditPart7.vue")["default"]
   },
   data: function data() {
     return {
-      exam_type: 1,
-      numQuestionPart1: 1,
-      numQuestionPart2: 1,
-      numQuestionPart3: 1,
-      numQuestionPart4: 1,
-      numQuestionPart5: 1,
-      numParagraphPart6: 1,
-      numParagraphPart7: 1
+      examType: {
+        "old": "Đề thi trước tháng 6/2020",
+        "new": "Đề thi sau tháng 6/2020",
+        "custom": "Đề luyện tập"
+      }
     };
+  },
+  props: {
+    exam: {
+      require: true
+    },
+    question_type: {
+      require: true
+    },
+    listening_part1: {
+      require: true
+    },
+    listening_part2: {
+      require: true
+    },
+    listening_part3: {
+      require: true
+    },
+    listening_part4: {
+      require: true
+    },
+    readings_part5: {
+      require: true
+    },
+    readings_part6: {
+      require: true
+    },
+    readings_part7: {
+      require: true
+    }
   },
   methods: {
     getQuestionTypes: function getQuestionTypes(part) {
       return this.question_type.filter(function (type) {
         return type.Part == part;
       });
-    },
-    updateNumberOfQuestions: function updateNumberOfQuestions() {
-      if (this.exam_type == 1) {
-        this.numQuestionPart1 = 1;
-        this.numQuestionPart2 = 1;
-        this.numQuestionPart3 = 1;
-        this.numQuestionPart4 = 1;
-        this.numQuestionPart5 = 1;
-        this.numParagraphPart6 = 1;
-        this.numParagraphPart7 = 1;
-      } else if (this.exam_type == 2) {
-        this.numQuestionPart1 = 4;
-        this.numQuestionPart2 = 4;
-        this.numQuestionPart3 = 4;
-        this.numQuestionPart4 = 4;
-        this.numQuestionPart5 = 4;
-        this.numParagraphPart6 = 4;
-        this.numParagraphPart7 = 4;
-      }
     }
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart1.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart1.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart1.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart1.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2103,10 +2106,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    numQuestion: {
-      type: Number,
+    listening: {
       require: true
     },
     questionTypes: {
@@ -2116,6 +2121,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      baseUrl: '',
       imageUrl: []
     };
   },
@@ -2126,23 +2132,111 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    for (var i = 0; i <= this.numQuestion; i++) {
-      this.imageUrl.push('https://picsum.photos/250/188');
+    var _this = this;
+
+    this.imageUrl[0] = this.baseUrl + '/storage/images/' + this.listening.example.image_url;
+    this.listening.part1.forEach(function (ques, index) {
+      _this.imageUrl[index + 1] = _this.baseUrl + '/storage/images/' + ques.image_url;
+    });
+  },
+  mounted: function mounted() {
+    this.baseUrl = window.location.origin;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart2.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart2.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    startAt: {
+      type: Number,
+      "default": 1
+    },
+    questionTypes: {
+      type: Array,
+      require: true
+    },
+    listening: {
+      require: true
     }
   },
-  beforeUpdate: function beforeUpdate() {
-    for (var i = this.imageUrl.length; i <= this.numQuestion; i++) {
-      this.imageUrl.push('https://picsum.photos/250/188');
-    }
+  data: function data() {
+    return {
+      baseUrl: ''
+    };
+  },
+  mounted: function mounted() {
+    this.baseUrl = window.location.origin;
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart2.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart2.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart3.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart3.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2200,10 +2294,212 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    numQuestion: {
+    startAt: {
       type: Number,
+      "default": 1
+    },
+    questionTypes: {
+      type: Array,
+      require: true
+    },
+    listening: {
+      require: true
+    }
+  },
+  data: function data() {
+    return {
+      baseUrl: ''
+    };
+  },
+  mounted: function mounted() {
+    this.baseUrl = window.location.origin;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart4.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart4.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    listening: {
+      require: true
+    },
+    startAt: {
+      type: Number,
+      "default": 1
+    },
+    questionTypes: {
+      type: Array,
+      require: true
+    }
+  },
+  data: function data() {
+    return {
+      baseUrl: ''
+    };
+  },
+  mounted: function mounted() {
+    this.baseUrl = window.location.origin;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart5.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart5.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    readings: {
       require: true
     },
     startAt: {
@@ -2219,10 +2515,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart3.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart3.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart6.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart6.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2292,12 +2588,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    numQuestion: {
-      type: Number,
+    readings: {
       require: true
     },
     startAt: {
@@ -2313,277 +2606,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart4.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart4.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    numQuestion: {
-      type: Number,
-      require: true
-    },
-    startAt: {
-      type: Number,
-      "default": 1
-    },
-    questionTypes: {
-      type: Array,
-      require: true
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart5.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart5.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    numQuestion: {
-      type: Number,
-      require: true
-    },
-    startAt: {
-      type: Number,
-      "default": 1
-    },
-    questionTypes: {
-      type: Array,
-      require: true
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart6.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart6.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    numParagraph: {
-      type: Number,
-      require: true
-    },
-    startAt: {
-      type: Number,
-      "default": 1
-    },
-    questionTypes: {
-      type: Array,
-      require: true
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart7.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart7.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart7.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart7.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2655,10 +2681,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    numParagraph: {
-      type: Number,
+    readings: {
       require: true
     },
     startAt: {
@@ -2679,7 +2729,7 @@ __webpack_require__.r(__webpack_exports__);
     sumOfPreviousQuestions: function sumOfPreviousQuestions(para) {
       var sum = 0;
 
-      for (var i = 1; i < para; i++) {
+      for (var i = 0; i < para; i++) {
         sum += Number(this.numQuestions[i]);
       }
 
@@ -2687,14 +2737,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    for (var i = 0; i <= this.numParagraph; i++) {
-      this.numQuestions.push(1);
-    }
-  },
-  beforeUpdate: function beforeUpdate() {
-    for (var i = this.numQuestions.length; i <= this.numParagraph; i++) {
-      this.numQuestions.push(1);
-    }
+    var _this = this;
+
+    this.readings.forEach(function (reading) {
+      _this.numQuestions.push(reading.part7.length);
+    });
   }
 });
 
@@ -38329,10 +38376,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/CreateExam.vue?vue&type=template&id=09bd0569&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/CreateExam.vue?vue&type=template&id=09bd0569& ***!
-  \*************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditExam.vue?vue&type=template&id=6dc27f2e&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditExam.vue?vue&type=template&id=6dc27f2e& ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -38357,66 +38404,24 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "col-md-8 col-lg-8 col-lg-offset-2" }, [
-              _vm._m(1),
-              _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Loại đề thi")]),
+                _c("label", [_vm._v("Tên đề thi")]),
                 _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.exam_type,
-                        expression: "exam_type"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { value: "0", name: "exam_type", required: "" },
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.exam_type = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        },
-                        function($event) {
-                          return _vm.updateNumberOfQuestions()
-                        }
-                      ]
-                    }
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    name: "exam_name",
+                    placeholder: "Tên đề thi",
+                    required: ""
                   },
-                  [
-                    _c(
-                      "option",
-                      { attrs: { value: "0", disabled: "", selected: "" } },
-                      [_vm._v("Chọn dạng đề thi Toeic")]
-                    ),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "1" } }, [
-                      _vm._v("Đề thi trước tháng 6/2020")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "2" } }, [
-                      _vm._v("Đề thi sau tháng 6/2020")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "3" } }, [
-                      _vm._v("Đề luyện tập")
-                    ])
-                  ]
-                )
-              ])
+                  domProps: { value: _vm.exam.name }
+                })
+              ]),
+              _vm._v(" "),
+              _c("h5", [_vm._v("Loại đề thi: ")]),
+              _vm._v(" "),
+              _c("p", [_vm._v(" " + _vm._s(_vm.examType[_vm.exam.type]) + " ")])
             ])
           ]
         )
@@ -38424,7 +38429,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "panel panel-purple" }, [
-      _vm._m(2),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", { staticClass: "clearfix" }),
       _vm._v(" "),
@@ -38432,80 +38437,83 @@ var render = function() {
         "div",
         { staticClass: "tab-content" },
         [
-          _c("create-part1", {
+          _c("edit-part1", {
             attrs: {
-              numQuestion: _vm.numQuestionPart1,
+              listening: _vm.listening_part1,
               questionTypes: _vm.getQuestionTypes(1)
             }
           }),
           _vm._v(" "),
-          _c("create-part2", {
+          _c("edit-part2", {
             attrs: {
-              numQuestion: _vm.numQuestionPart2,
+              listening: _vm.listening_part2,
               questionTypes: _vm.getQuestionTypes(2),
-              startAt: 1 + _vm.numQuestionPart1
+              startAt: 1 + _vm.listening_part1.part1.length
             }
           }),
           _vm._v(" "),
-          _c("create-part3", {
+          _c("edit-part3", {
             attrs: {
-              numQuestion: _vm.numQuestionPart3,
+              listening: _vm.listening_part3,
               questionTypes: _vm.getQuestionTypes(3),
-              startAt: 1 + this.numQuestionPart1 + this.numQuestionPart2
+              startAt:
+                1 +
+                _vm.listening_part1.part1.length +
+                _vm.listening_part2.part2.length
             }
           }),
           _vm._v(" "),
-          _c("create-part4", {
+          _c("edit-part4", {
             attrs: {
-              numQuestion: _vm.numQuestionPart4,
+              listening: _vm.listening_part4,
               questionTypes: _vm.getQuestionTypes(4),
               startAt:
                 1 +
-                this.numQuestionPart1 +
-                this.numQuestionPart2 +
-                this.numQuestionPart3
+                _vm.listening_part1.part1.length +
+                _vm.listening_part2.part2.length +
+                _vm.listening_part3.part3.length
             }
           }),
           _vm._v(" "),
-          _c("create-part5", {
+          _c("edit-part5", {
             attrs: {
-              numQuestion: _vm.numQuestionPart5,
+              readings: _vm.readings_part5,
               questionTypes: _vm.getQuestionTypes(5),
               startAt:
                 1 +
-                this.numQuestionPart1 +
-                this.numQuestionPart2 +
-                this.numQuestionPart3 +
-                this.numQuestionPart4
+                _vm.listening_part1.part1.length +
+                _vm.listening_part2.part2.length +
+                _vm.listening_part3.part3.length +
+                _vm.listening_part4.part4.length
             }
           }),
           _vm._v(" "),
-          _c("create-part6", {
+          _c("edit-part6", {
             attrs: {
-              numParagraph: _vm.numParagraphPart6,
+              readings: _vm.readings_part6,
               questionTypes: _vm.getQuestionTypes(6),
               startAt:
                 1 +
-                this.numQuestionPart1 +
-                this.numQuestionPart2 +
-                this.numQuestionPart3 +
-                this.numQuestionPart4 +
-                this.numQuestionPart5
+                _vm.listening_part1.part1.length +
+                _vm.listening_part2.part2.length +
+                _vm.listening_part3.part3.length +
+                _vm.listening_part4.part4.length +
+                _vm.readings_part5.length
             }
           }),
           _vm._v(" "),
-          _c("create-part7", {
+          _c("edit-part7", {
             attrs: {
-              numParagraph: _vm.numParagraphPart7,
+              readings: _vm.readings_part7,
               questionTypes: _vm.getQuestionTypes(7),
               startAt:
                 1 +
-                this.numQuestionPart1 +
-                this.numQuestionPart2 +
-                this.numQuestionPart3 +
-                this.numQuestionPart4 +
-                this.numQuestionPart5 +
-                this.numParagraphPart6 * 3
+                _vm.listening_part1.part1.length +
+                _vm.listening_part2.part2.length +
+                _vm.listening_part3.part3.length +
+                _vm.listening_part4.part4.length +
+                _vm.readings_part5.length +
+                3 * _vm.readings_part6.length
             }
           })
         ],
@@ -38522,25 +38530,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "panel-heading" }, [
       _c("i", { staticClass: "fas fa-user" }),
       _vm._v("Thêm đề thi mới")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", [_vm._v("Tên đề thi")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          name: "exam_name",
-          placeholder: "Tên đề thi",
-          value: "Demo",
-          required: ""
-        }
-      })
     ])
   },
   function() {
@@ -38598,10 +38587,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart1.vue?vue&type=template&id=024c1a64&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart1.vue?vue&type=template&id=024c1a64& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart1.vue?vue&type=template&id=18971178&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart1.vue?vue&type=template&id=18971178& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -38633,8 +38622,7 @@ var render = function() {
                   attrs: {
                     id: "img_test1",
                     type: "file",
-                    name: "part1_example_image",
-                    required: ""
+                    name: "part1_example_image"
                   },
                   on: {
                     change: function($event) {
@@ -38661,19 +38649,27 @@ var render = function() {
                   attrs: {
                     type: "text",
                     name: "part1_example",
-                    placeholder: "Guide to choose the answer",
-                    required: ""
-                  }
+                    placeholder: "Guide to choose the answer"
+                  },
+                  domProps: { value: _vm.listening.example.example }
                 }),
                 _c("br"),
                 _vm._v(" "),
                 _c("b", [_vm._v("Audio: ")]),
                 _c("br"),
                 _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "file", name: "part1_audio", required: "" }
-                }),
-                _c("br")
+                _c("input", { attrs: { type: "file", name: "part1_audio" } }),
+                _c("br"),
+                _vm._v(" "),
+                _c("audio", {
+                  attrs: {
+                    src:
+                      _vm.baseUrl +
+                      "/storage/part1_audios/" +
+                      _vm.listening.audio_url,
+                    controls: ""
+                  }
+                })
               ])
             ])
           ]),
@@ -38682,9 +38678,11 @@ var render = function() {
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
-          _vm._l(_vm.numQuestion, function(ques) {
-            return _c("div", { key: ques, attrs: { id: "questions_part1" } }, [
-              _c("p", [_c("b", [_vm._v("Question " + _vm._s(ques) + ":")])]),
+          _vm._l(_vm.listening.part1, function(ques, index) {
+            return _c("div", { key: index, attrs: { id: "questions_part1" } }, [
+              _c("p", [
+                _c("b", [_vm._v("Question " + _vm._s(index + 1) + ":")])
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "form-group" }, [
@@ -38694,10 +38692,7 @@ var render = function() {
                     "select",
                     {
                       staticClass: "form-control",
-                      attrs: {
-                        name: "questionType[" + Number(ques) + "]",
-                        required: ""
-                      }
+                      attrs: { name: "questionType[" + Number(index + 1) + "]" }
                     },
                     [
                       _c(
@@ -38709,7 +38704,13 @@ var render = function() {
                       _vm._l(_vm.questionTypes, function(qtype) {
                         return _c(
                           "option",
-                          { key: qtype.id, domProps: { value: qtype.id } },
+                          {
+                            key: qtype.id,
+                            domProps: {
+                              value: qtype.id,
+                              selected: ques.question_type_id == qtype.id
+                            }
+                          },
                           [_vm._v(_vm._s(qtype.type))]
                         )
                       })
@@ -38722,28 +38723,34 @@ var render = function() {
                   _c("input", {
                     staticClass: "form-control hidden",
                     attrs: {
-                      id: "img_question_" + ques,
+                      id: "img_question_" + (index + 1),
                       type: "file",
-                      name: "image[" + ques + "]",
-                      required: ""
+                      name: "image[" + (index + 1) + "]"
                     },
                     on: {
                       change: function($event) {
-                        return _vm.changeImg($event, ques)
+                        return _vm.changeImg($event, index + 1)
                       }
                     }
                   }),
                   _vm._v(" "),
                   _c("div", { staticClass: "example" }, [
-                    _c("label", { attrs: { for: "img_question_" + ques } }, [
-                      _c("img", {
-                        staticStyle: {
-                          "max-width": "300px",
-                          "max-height": "100%"
-                        },
-                        attrs: { id: "img_" + ques, src: _vm.imageUrl[ques] }
-                      })
-                    ])
+                    _c(
+                      "label",
+                      { attrs: { for: "img_question_" + (index + 1) } },
+                      [
+                        _c("img", {
+                          staticStyle: {
+                            "max-width": "300px",
+                            "max-height": "100%"
+                          },
+                          attrs: {
+                            id: "img_" + (index + 1),
+                            src: _vm.imageUrl[index + 1]
+                          }
+                        })
+                      ]
+                    )
                   ])
                 ]),
                 _vm._v(" "),
@@ -38758,10 +38765,10 @@ var render = function() {
                             attrs: {
                               type: "radio",
                               id: "",
-                              name: "answer[" + ques + "]",
-                              value: "A",
-                              checked: ""
-                            }
+                              name: "answer[" + (index + 1) + "]",
+                              value: "A"
+                            },
+                            domProps: { checked: ques.answer == "A" }
                           })
                         ])
                       ]),
@@ -38774,9 +38781,10 @@ var render = function() {
                             attrs: {
                               type: "radio",
                               id: "",
-                              name: "answer[" + ques + "]",
+                              name: "answer[" + (index + 1) + "]",
                               value: "B"
-                            }
+                            },
+                            domProps: { checked: ques.answer == "B" }
                           })
                         ])
                       ]),
@@ -38789,9 +38797,10 @@ var render = function() {
                             attrs: {
                               type: "radio",
                               id: "",
-                              name: "answer[" + ques + "]",
+                              name: "answer[" + (index + 1) + "]",
                               value: "C"
-                            }
+                            },
+                            domProps: { checked: ques.answer == "C" }
                           })
                         ])
                       ]),
@@ -38804,9 +38813,10 @@ var render = function() {
                             attrs: {
                               type: "radio",
                               id: "",
-                              name: "answer[" + ques + "]",
+                              name: "answer[" + (index + 1) + "]",
                               value: "D"
-                            }
+                            },
+                            domProps: { checked: ques.answer == "D" }
                           })
                         ])
                       ])
@@ -38852,10 +38862,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart2.vue?vue&type=template&id=025a31e5&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart2.vue?vue&type=template&id=025a31e5& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart2.vue?vue&type=template&id=187ae276&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart2.vue?vue&type=template&id=187ae276& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -38877,17 +38887,51 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "panel-body" }, [
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "div",
-        { attrs: { id: "question_part2" } },
-        _vm._l(_vm.numQuestion, function(ques) {
-          return _c("div", { key: ques }, [
-            _c("b", [
-              _vm._v("Question " + _vm._s(ques + _vm.startAt - 1) + ":")
-            ]),
+    _c(
+      "div",
+      { staticClass: "panel-body" },
+      [
+        _c("div", { attrs: { id: "testheader" } }, [
+          _c("span", { attrs: { id: "instructions" } }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _c("textarea", {
+              staticClass: "form-control",
+              staticStyle: { height: "200px" },
+              attrs: {
+                type: "text",
+                name: "part2_example",
+                placeholder: "Guide to choose the answer"
+              },
+              domProps: { value: _vm.listening.example.example }
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _c("b", [_vm._v("Audio: ")]),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", { attrs: { type: "file", name: "part2_audio" } }),
+            _c("br"),
+            _vm._v(" "),
+            _c("audio", {
+              attrs: {
+                src:
+                  _vm.baseUrl +
+                  "/storage/part2_audios/" +
+                  _vm.listening.audio_url,
+                controls: ""
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("hr"),
+        _vm._v(" "),
+        _vm._l(_vm.listening.part2, function(ques, index) {
+          return _c("div", { key: index, attrs: { id: "question_part2" } }, [
+            _c("b", [_vm._v("Question " + _vm._s(index + _vm.startAt) + ":")]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group" }, [
               _c("label", [_vm._v("Loại câu hỏi")]),
@@ -38897,20 +38941,24 @@ var render = function() {
                 {
                   staticClass: "form-control",
                   attrs: {
-                    name:
-                      "questionType[" + Number(ques + _vm.startAt - 1) + "]",
-                    required: ""
+                    name: "questionType[" + Number(index + _vm.startAt) + "]"
                   }
                 },
                 [
-                  _c("option", { attrs: { disabled: "", selected: "" } }, [
+                  _c("option", { attrs: { disabled: "" } }, [
                     _vm._v("Chọn dạng câu hỏi")
                   ]),
                   _vm._v(" "),
                   _vm._l(_vm.questionTypes, function(qtype) {
                     return _c(
                       "option",
-                      { key: qtype.id, domProps: { value: qtype.id } },
+                      {
+                        key: qtype.id,
+                        domProps: {
+                          value: qtype.id,
+                          selected: ques.question_type_id == qtype.id
+                        }
+                      },
                       [_vm._v(_vm._s(qtype.type))]
                     )
                   })
@@ -38930,10 +38978,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
-                    value: "A",
-                    checked: ""
-                  }
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
+                    value: "A"
+                  },
+                  domProps: { checked: ques.answer == "A" }
                 })
               ]),
               _vm._v(" "),
@@ -38947,9 +38995,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "B"
-                  }
+                  },
+                  domProps: { checked: ques.answer == "B" }
                 })
               ]),
               _vm._v(" "),
@@ -38963,19 +39012,20 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "C"
-                  }
+                  },
+                  domProps: { checked: ques.answer == "C" }
                 })
               ])
             ]),
             _vm._v(" "),
             _c("hr")
           ])
-        }),
-        0
-      )
-    ])
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = [
@@ -38994,38 +39044,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "testheader" } }, [
-      _c("span", { attrs: { id: "instructions" } }, [
-        _c("p", [
-          _c("b", [_vm._v("Directions:")]),
-          _vm._v(
-            " Listen to these questions and statements. After each question or statement, you will hear three responses. Select the most appropriate response. Mark your answer by clicking (A), (B), or (C). You will hear each question or statement, and the responses, only once."
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [_c("b", [_vm._v("Example:")])]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          staticStyle: { height: "200px" },
-          attrs: {
-            type: "text",
-            name: "part2_example",
-            placeholder: "Guide to choose the answer",
-            required: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _c("b", [_vm._v("Audio: ")]),
-        _c("br"),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "file", name: "part2_audio", required: "" }
-        }),
-        _c("br")
-      ])
+    return _c("p", [
+      _c("b", [_vm._v("Directions:")]),
+      _vm._v(
+        " Listen to these questions and statements. After each question or statement, you will hear three responses. Select the most appropriate response. Mark your answer by clicking (A), (B), or (C). You will hear each question or statement, and the responses, only once."
+      )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_c("b", [_vm._v("Example:")])])
   }
 ]
 render._withStripped = true
@@ -39034,10 +39064,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart3.vue?vue&type=template&id=02684966&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart3.vue?vue&type=template&id=02684966& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart3.vue?vue&type=template&id=185eb374&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart3.vue?vue&type=template&id=185eb374& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -39069,17 +39099,38 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", { attrs: { id: "test" } }, [
+          _c("div", { attrs: { id: "testheader" } }, [
+            _c("span", { attrs: { id: "instructions" } }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("br"),
+              _c("b", [_vm._v("Audio: ")]),
+              _c("br"),
+              _vm._v(" "),
+              _c("input", { attrs: { type: "file", name: "part3_audio" } }),
+              _c("br"),
+              _vm._v(" "),
+              _c("audio", {
+                attrs: {
+                  src:
+                    _vm.baseUrl +
+                    "/storage/part3_audios/" +
+                    _vm.listening.audio_url,
+                  controls: ""
+                }
+              })
+            ])
+          ])
+        ]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
         _c("div", { attrs: { id: "extracttoeic" } }),
         _vm._v(" "),
-        _vm._l(_vm.numQuestion, function(ques) {
-          return _c("div", { key: ques, attrs: { id: "question_part3" } }, [
-            _c("b", [
-              _vm._v("Question " + _vm._s(ques + _vm.startAt - 1) + ":")
-            ]),
+        _vm._l(_vm.listening.part3, function(ques, index) {
+          return _c("div", { key: index, attrs: { id: "question" } }, [
+            _c("b", [_vm._v("Question " + _vm._s(index + _vm.startAt) + ":")]),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
@@ -39087,11 +39138,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "question[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Question " + Number(ques + _vm.startAt - 1),
-                required: ""
+                name: "question[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Question " + Number(index + _vm.startAt)
               },
-              domProps: { value: "Question " + Number(ques + _vm.startAt - 1) }
+              domProps: { value: ques.question }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39103,18 +39153,24 @@ var render = function() {
                 {
                   staticClass: "form-control",
                   attrs: {
-                    name: "questionType[" + Number(ques + _vm.startAt - 1) + "]"
+                    name: "questionType[" + Number(index + _vm.startAt) + "]"
                   }
                 },
                 [
-                  _c("option", { attrs: { disabled: "", selected: "" } }, [
+                  _c("option", { attrs: { disabled: "" } }, [
                     _vm._v("Chọn dạng câu hỏi")
                   ]),
                   _vm._v(" "),
                   _vm._l(_vm.questionTypes, function(qtype) {
                     return _c(
                       "option",
-                      { key: qtype.id, domProps: { value: qtype.id } },
+                      {
+                        key: qtype.id,
+                        domProps: {
+                          value: qtype.id,
+                          selected: ques.question_type_id == qtype.id
+                        }
+                      },
                       [_vm._v(_vm._s(qtype.type))]
                     )
                   })
@@ -39127,11 +39183,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceA[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer A",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceA[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer A"
+              },
+              domProps: { value: ques.choice_A }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39139,11 +39194,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceB[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer B",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceB[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer B"
+              },
+              domProps: { value: ques.choice_B }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39151,11 +39205,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceC[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer C",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceC[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer C"
+              },
+              domProps: { value: ques.choice_C }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39163,11 +39216,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceD[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer D",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceD[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer D"
+              },
+              domProps: { value: ques.choice_D }
             }),
             _vm._v(" "),
             _c("b", [_vm._v("Answer choice:")]),
@@ -39183,10 +39235,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
-                    value: "A",
-                    checked: ""
-                  }
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
+                    value: "A"
+                  },
+                  domProps: { checked: ques.answer == "A" }
                 })
               ]),
               _vm._v(" "),
@@ -39200,9 +39252,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "B"
-                  }
+                  },
+                  domProps: { checked: ques.answer == "B" }
                 })
               ]),
               _vm._v(" "),
@@ -39216,9 +39269,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "C"
-                  }
+                  },
+                  domProps: { checked: ques.answer == "C" }
                 })
               ]),
               _vm._v(" "),
@@ -39232,9 +39286,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "D"
-                  }
+                  },
+                  domProps: { checked: ques.answer == "D" }
                 })
               ])
             ]),
@@ -39261,26 +39316,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "test" } }, [
-      _c("div", { attrs: { id: "testheader" } }, [
-        _c("span", { attrs: { id: "instructions" } }, [
-          _c("p", [
-            _c("b", [_vm._v("Directions:")]),
-            _vm._v(
-              " You will hear some conversations between two people. You will be asked to answer three questions about what the speakers say in each conversation. Select the best response to each question and mark the letter (A), (B), (C), or (D) on your answer sheet. The conversations will not be printed in your test book and will be spoken only one time."
-            )
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _c("b", [_vm._v("Audio: ")]),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "file", name: "part3_audio", required: "" }
-          }),
-          _c("br")
-        ])
-      ])
+    return _c("p", [
+      _c("b", [_vm._v("Directions:")]),
+      _vm._v(
+        " You will hear some conversations between two people. You will be asked to answer three questions about what the speakers say in each conversation. Select the best response to each question and mark the letter (A), (B), (C), or (D) on your answer sheet. The conversations will not be printed in your test book and will be spoken only one time."
+      )
     ])
   }
 ]
@@ -39290,10 +39330,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart4.vue?vue&type=template&id=027660e7&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart4.vue?vue&type=template&id=027660e7& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart4.vue?vue&type=template&id=18428472&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart4.vue?vue&type=template&id=18428472& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -39325,17 +39365,38 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", { attrs: { id: "test" } }, [
+          _c("div", { attrs: { id: "testheader" } }, [
+            _c("span", { attrs: { id: "instructions" } }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("br"),
+              _c("b", [_vm._v("Audio: ")]),
+              _c("br"),
+              _vm._v(" "),
+              _c("input", { attrs: { type: "file", name: "part4_audio" } }),
+              _c("br"),
+              _vm._v(" "),
+              _c("audio", {
+                attrs: {
+                  src:
+                    _vm.baseUrl +
+                    "/storage/part4_audios/" +
+                    _vm.listening.audio_url,
+                  controls: ""
+                }
+              })
+            ])
+          ])
+        ]),
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
         _c("div", { attrs: { id: "extracttoeic" } }),
         _vm._v(" "),
-        _vm._l(_vm.numQuestion, function(ques) {
-          return _c("div", { key: ques, attrs: { id: "question_part4" } }, [
-            _c("b", [
-              _vm._v("Question " + _vm._s(ques + _vm.startAt - 1) + ":")
-            ]),
+        _vm._l(_vm.listening.part4, function(ques, index) {
+          return _c("div", { key: index, attrs: { id: "question_part4" } }, [
+            _c("b", [_vm._v("Question " + _vm._s(index + _vm.startAt) + ":")]),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
@@ -39343,10 +39404,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "question[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Question " + Number(ques + _vm.startAt - 1),
-                required: ""
-              }
+                name: "question[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Question " + Number(index + _vm.startAt)
+              },
+              domProps: { value: ques.question }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39358,7 +39419,7 @@ var render = function() {
                 {
                   staticClass: "form-control",
                   attrs: {
-                    name: "questionType[" + Number(ques + _vm.startAt - 1) + "]"
+                    name: "questionType[" + Number(index + _vm.startAt) + "]"
                   }
                 },
                 [
@@ -39369,7 +39430,13 @@ var render = function() {
                   _vm._l(_vm.questionTypes, function(qtype) {
                     return _c(
                       "option",
-                      { key: qtype.id, domProps: { value: qtype.id } },
+                      {
+                        key: qtype.id,
+                        domProps: {
+                          value: qtype.id,
+                          selected: ques.question_type_id == qtype.id
+                        }
+                      },
                       [_vm._v(_vm._s(qtype.type))]
                     )
                   })
@@ -39382,11 +39449,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceA[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer A",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceA[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer A"
+              },
+              domProps: { value: ques.choice_A }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39394,11 +39460,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceB[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer B",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceB[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer B"
+              },
+              domProps: { value: ques.choice_B }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39406,11 +39471,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceC[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer C",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceC[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer C"
+              },
+              domProps: { value: ques.choice_C }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39418,11 +39482,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceD[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer D",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceD[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer D"
+              },
+              domProps: { value: ques.choice_D }
             }),
             _vm._v(" "),
             _c("b", [_vm._v("Answer choice:")]),
@@ -39438,10 +39501,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
-                    value: "A",
-                    checked: ""
-                  }
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
+                    value: "A"
+                  },
+                  domProps: { checked: ques.answer == "A" }
                 })
               ]),
               _vm._v(" "),
@@ -39455,9 +39518,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "B"
-                  }
+                  },
+                  domProps: { checked: ques.answer == "B" }
                 })
               ]),
               _vm._v(" "),
@@ -39471,9 +39535,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "C"
-                  }
+                  },
+                  domProps: { checked: ques.answer == "C" }
                 })
               ]),
               _vm._v(" "),
@@ -39487,9 +39552,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "D"
-                  }
+                  },
+                  domProps: { checked: ques.answer == "D" }
                 })
               ])
             ]),
@@ -39516,26 +39582,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "test" } }, [
-      _c("div", { attrs: { id: "testheader" } }, [
-        _c("span", { attrs: { id: "instructions" } }, [
-          _c("p", [
-            _c("b", [_vm._v("Directions:")]),
-            _vm._v(
-              " You will hear some talks given by a single speaker. You will be asked to answer three questions about what the speaker says in each talk. Select the best response to each question and mark the letter (A), (B), (C), or (D) on your answer sheet. The talks will not be printed in your test book and will be spoken only one time."
-            )
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _c("b", [_vm._v("Audio: ")]),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { type: "file", name: "part4_audio", required: "" }
-          }),
-          _c("br")
-        ])
-      ])
+    return _c("p", [
+      _c("b", [_vm._v("Directions:")]),
+      _vm._v(
+        " You will hear some talks given by a single speaker. You will be asked to answer three questions about what the speaker says in each talk. Select the best response to each question and mark the letter (A), (B), (C), or (D) on your answer sheet. The talks will not be printed in your test book and will be spoken only one time."
+      )
     ])
   }
 ]
@@ -39545,10 +39596,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart5.vue?vue&type=template&id=02847868&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart5.vue?vue&type=template&id=02847868& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart5.vue?vue&type=template&id=18265570&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart5.vue?vue&type=template&id=18265570& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -39576,11 +39627,13 @@ var render = function() {
       [
         _vm._m(1),
         _vm._v(" "),
-        _vm._l(_vm.numQuestion, function(ques) {
-          return _c("div", { key: ques, attrs: { id: "question_part5" } }, [
-            _c("b", [
-              _vm._v("Question " + _vm._s(ques + _vm.startAt - 1) + ":")
-            ]),
+        _c("hr"),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "extracttoeic" } }),
+        _vm._v(" "),
+        _vm._l(_vm.readings, function(ques, index) {
+          return _c("div", { key: index, attrs: { id: "question_part5" } }, [
+            _c("b", [_vm._v("Question " + _vm._s(index + _vm.startAt) + ":")]),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
@@ -39588,11 +39641,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "part5_paragraph[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Question  " + Number(ques + _vm.startAt - 1),
-                required: ""
+                name: "part5_paragraph[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Question " + Number(index + _vm.startAt)
               },
-              domProps: { value: "Question  " + Number(ques + _vm.startAt - 1) }
+              domProps: { value: ques.paragraph }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39604,20 +39656,24 @@ var render = function() {
                 {
                   staticClass: "form-control",
                   attrs: {
-                    name:
-                      "questionType[" + Number(ques + _vm.startAt - 1) + "]",
-                    required: ""
+                    name: "questionType[" + Number(index + _vm.startAt) + "]"
                   }
                 },
                 [
-                  _c("option", { attrs: { disabled: "", selected: "" } }, [
+                  _c("option", { attrs: { disabled: "" } }, [
                     _vm._v("Chọn dạng câu hỏi")
                   ]),
                   _vm._v(" "),
                   _vm._l(_vm.questionTypes, function(qtype) {
                     return _c(
                       "option",
-                      { key: qtype.id, domProps: { value: qtype.id } },
+                      {
+                        key: qtype.id,
+                        domProps: {
+                          value: qtype.id,
+                          selected: ques.part5.question_type_id == qtype.id
+                        }
+                      },
                       [_vm._v(_vm._s(qtype.type))]
                     )
                   })
@@ -39630,11 +39686,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceA[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer A",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceA[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer A"
+              },
+              domProps: { value: ques.part5.choice_A }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39642,11 +39697,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceB[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer B",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceB[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer B"
+              },
+              domProps: { value: ques.part5.choice_B }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39654,11 +39708,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceC[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer C",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceC[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer C"
+              },
+              domProps: { value: ques.part5.choice_C }
             }),
             _c("br"),
             _vm._v(" "),
@@ -39666,11 +39719,10 @@ var render = function() {
               staticClass: "form-control",
               attrs: {
                 type: "text",
-                name: "choiceD[" + Number(ques + _vm.startAt - 1) + "]",
-                placeholder: "Answer D",
-                value: "Answer",
-                required: ""
-              }
+                name: "choiceD[" + Number(index + _vm.startAt) + "]",
+                placeholder: "Answer D"
+              },
+              domProps: { value: ques.part5.choice_D }
             }),
             _vm._v(" "),
             _c("b", [_vm._v("Answer choice:")]),
@@ -39686,10 +39738,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
-                    value: "A",
-                    checked: ""
-                  }
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
+                    value: "A"
+                  },
+                  domProps: { checked: ques.part5.answer == "A" }
                 })
               ]),
               _vm._v(" "),
@@ -39703,9 +39755,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "B"
-                  }
+                  },
+                  domProps: { checked: ques.part5.answer == "B" }
                 })
               ]),
               _vm._v(" "),
@@ -39719,9 +39772,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "C"
-                  }
+                  },
+                  domProps: { checked: ques.part5.answer == "C" }
                 })
               ]),
               _vm._v(" "),
@@ -39735,9 +39789,10 @@ var render = function() {
                 _c("input", {
                   attrs: {
                     type: "radio",
-                    name: "answer[" + Number(ques + _vm.startAt - 1) + "]",
+                    name: "answer[" + Number(index + _vm.startAt) + "]",
                     value: "D"
-                  }
+                  },
+                  domProps: { checked: ques.part5.answer == "D" }
                 })
               ])
             ]),
@@ -39766,13 +39821,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "testheader" } }, [
-      _c("span", { attrs: { id: "instructions" } }, [
-        _c("p", [
-          _c("b", [_vm._v("Directions:")]),
-          _vm._v(
-            " A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet."
-          )
+    return _c("div", { attrs: { id: "test" } }, [
+      _c("div", { attrs: { id: "testheader" } }, [
+        _c("span", { attrs: { id: "instructions" } }, [
+          _c("p", [
+            _c("b", [_vm._v("Directions:")]),
+            _vm._v(
+              " A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence. Then mark the letter (A), (B), (C), or (D) on your answer sheet."
+            )
+          ])
         ])
       ])
     ])
@@ -39784,10 +39841,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart6.vue?vue&type=template&id=02928fe9&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart6.vue?vue&type=template&id=02928fe9& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart6.vue?vue&type=template&id=180a266e&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart6.vue?vue&type=template&id=180a266e& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -39805,7 +39862,7 @@ var render = function() {
       _vm._v(" "),
       _c("input", {
         attrs: { type: "number", name: "startPart6", hidden: "" },
-        domProps: { value: _vm.startAt }
+        domProps: { value: Number(_vm.startAt) }
       })
     ]),
     _vm._v(" "),
@@ -39820,14 +39877,14 @@ var render = function() {
         "div",
         { attrs: { id: "question_part6" } },
         [
-          _vm._l(_vm.numParagraph, function(para) {
-            return _c("div", { key: para }, [
+          _vm._l(_vm.readings, function(para, paraIndex) {
+            return _c("div", { key: paraIndex }, [
               _c("b", [
                 _vm._v(
                   "Question " +
-                    _vm._s((para - 1) * 3 + _vm.startAt) +
+                    _vm._s(paraIndex * 3 + _vm.startAt) +
                     " - " +
-                    _vm._s((para - 1) * 3 + _vm.startAt + 2) +
+                    _vm._s(paraIndex * 3 + _vm.startAt + 2) +
                     ": refer to the following text"
                 )
               ]),
@@ -39836,21 +39893,20 @@ var render = function() {
               _c("textarea", {
                 staticClass: "form-control",
                 attrs: {
-                  name: "part6_paragraph[" + para + "]",
-                  type: "text",
-                  value: "p6",
-                  required: ""
-                }
+                  name: "part6_paragraph[" + paraIndex + "]",
+                  type: "text"
+                },
+                domProps: { value: para.paragraph }
               }),
               _vm._v(" "),
               _c(
                 "div",
-                _vm._l(3, function(ques) {
-                  return _c("div", { key: ques }, [
+                _vm._l(para.part6, function(ques, quesIndex) {
+                  return _c("div", { key: quesIndex }, [
                     _c("b", [
                       _vm._v(
                         "Question " +
-                          _vm._s(ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          _vm._s(quesIndex + paraIndex * 3 + _vm.startAt) +
                           ":"
                       )
                     ]),
@@ -39866,23 +39922,25 @@ var render = function() {
                           attrs: {
                             name:
                               "questionType[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (quesIndex + paraIndex * 3 + _vm.startAt) +
                               "]"
                           }
                         },
                         [
-                          _c(
-                            "option",
-                            {
-                              attrs: { value: "0", disabled: "", selected: "" }
-                            },
-                            [_vm._v("Chọn dạng câu hỏi")]
-                          ),
+                          _c("option", { attrs: { disabled: "" } }, [
+                            _vm._v("Chọn dạng câu hỏi")
+                          ]),
                           _vm._v(" "),
                           _vm._l(_vm.questionTypes, function(qtype) {
                             return _c(
                               "option",
-                              { key: qtype.id, domProps: { value: qtype.id } },
+                              {
+                                key: qtype.id,
+                                domProps: {
+                                  value: qtype.id,
+                                  selected: ques.question_type_id == qtype.id
+                                }
+                              },
                               [_vm._v(_vm._s(qtype.type))]
                             )
                           })
@@ -39897,12 +39955,11 @@ var render = function() {
                         type: "text",
                         name:
                           "choiceA[" +
-                          (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          (quesIndex + paraIndex * 3 + _vm.startAt) +
                           "]",
-                        placeholder: "Answer A",
-                        value: "Answer",
-                        required: ""
-                      }
+                        placeholder: "Answer A"
+                      },
+                      domProps: { value: ques.choice_A }
                     }),
                     _c("br"),
                     _vm._v(" "),
@@ -39912,12 +39969,11 @@ var render = function() {
                         type: "text",
                         name:
                           "choiceB[" +
-                          (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          (quesIndex + paraIndex * 3 + _vm.startAt) +
                           "]",
-                        placeholder: "Answer B",
-                        value: "Answer",
-                        required: ""
-                      }
+                        placeholder: "Answer B"
+                      },
+                      domProps: { value: ques.choice_B }
                     }),
                     _c("br"),
                     _vm._v(" "),
@@ -39927,12 +39983,11 @@ var render = function() {
                         type: "text",
                         name:
                           "choiceC[" +
-                          (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          (quesIndex + paraIndex * 3 + _vm.startAt) +
                           "]",
-                        placeholder: "Answer C",
-                        value: "Answer",
-                        required: ""
-                      }
+                        placeholder: "Answer C"
+                      },
+                      domProps: { value: ques.choice_C }
                     }),
                     _c("br"),
                     _vm._v(" "),
@@ -39942,12 +39997,11 @@ var render = function() {
                         type: "text",
                         name:
                           "choiceD[" +
-                          (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          (quesIndex + paraIndex * 3 + _vm.startAt) +
                           "]",
-                        placeholder: "Answer D",
-                        value: "Answer",
-                        required: ""
-                      }
+                        placeholder: "Answer D"
+                      },
+                      domProps: { value: ques.choice_D }
                     }),
                     _vm._v(" "),
                     _c("b", [_vm._v("Answer choice:")]),
@@ -39970,11 +40024,11 @@ var render = function() {
                             type: "radio",
                             name:
                               "answer[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (quesIndex + paraIndex * 3 + _vm.startAt) +
                               "]",
-                            value: "A",
-                            checked: ""
-                          }
+                            value: "A"
+                          },
+                          domProps: { checked: ques.answer == "A" }
                         })
                       ]),
                       _vm._v(" "),
@@ -39995,10 +40049,11 @@ var render = function() {
                             type: "radio",
                             name:
                               "answer[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (quesIndex + paraIndex * 3 + _vm.startAt) +
                               "]",
                             value: "B"
-                          }
+                          },
+                          domProps: { checked: ques.answer == "B" }
                         })
                       ]),
                       _vm._v(" "),
@@ -40019,10 +40074,11 @@ var render = function() {
                             type: "radio",
                             name:
                               "answer[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (quesIndex + paraIndex * 3 + _vm.startAt) +
                               "]",
                             value: "C"
-                          }
+                          },
+                          domProps: { checked: ques.answer == "C" }
                         })
                       ]),
                       _vm._v(" "),
@@ -40043,10 +40099,11 @@ var render = function() {
                             type: "radio",
                             name:
                               "answer[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (quesIndex + paraIndex * 3 + _vm.startAt) +
                               "]",
                             value: "D"
-                          }
+                          },
+                          domProps: { checked: ques.answer == "D" }
                         })
                       ])
                     ])
@@ -40100,10 +40157,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart7.vue?vue&type=template&id=02a0a76a&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/create/createPart7.vue?vue&type=template&id=02a0a76a& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart7.vue?vue&type=template&id=17edf76c&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/exam/edit/EditPart7.vue?vue&type=template&id=17edf76c& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -40122,11 +40179,6 @@ var render = function() {
       _c("input", {
         attrs: { type: "number", name: "startPart7", hidden: "" },
         domProps: { value: Number(_vm.startAt) }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "number", name: "numParaPart7", hidden: "" },
-        domProps: { value: _vm.numParagraph }
       })
     ]),
     _vm._v(" "),
@@ -40142,20 +40194,20 @@ var render = function() {
           "div",
           { attrs: { id: "questions_part7" } },
           [
-            _vm._l(_vm.numParagraph, function(para) {
+            _vm._l(_vm.readings, function(para, paraIndex) {
               return _c(
                 "div",
-                { key: para },
+                { key: paraIndex },
                 [
-                  _c("b", [_vm._v("Paragraph " + _vm._s(para))]),
+                  _c("b", [_vm._v("Paragraph " + _vm._s(paraIndex + 1))]),
                   _vm._v(" "),
                   _c("textarea", {
                     staticClass: "form-control",
                     attrs: {
-                      name: "part7_paragraph[" + para + "]",
-                      type: "text",
-                      required: ""
-                    }
+                      name: "part7_paragraph[" + paraIndex + "]",
+                      type: "text"
+                    },
+                    domProps: { value: para.paragraph }
                   }),
                   _c("br"),
                   _vm._v(" "),
@@ -40166,34 +40218,39 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.numQuestions[para],
-                        expression: "numQuestions[para]"
+                        value: _vm.numQuestions[paraIndex],
+                        expression: "numQuestions[paraIndex]"
                       }
                     ],
                     staticClass: "form-control",
                     attrs: {
                       type: "number",
                       min: "1",
-                      name: "part7_numQuestions[" + para + "]",
-                      require: "",
-                      required: ""
+                      name: "part7_numQuestions[" + paraIndex + "]",
+                      require: ""
                     },
-                    domProps: { value: _vm.numQuestions[para] },
+                    domProps: { value: _vm.numQuestions[paraIndex] },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.numQuestions, para, $event.target.value)
+                        _vm.$set(
+                          _vm.numQuestions,
+                          paraIndex,
+                          $event.target.value
+                        )
                       }
                     }
                   }),
                   _vm._v(" "),
-                  _vm._l(Number(_vm.numQuestions[para]), function(ques) {
+                  _vm._l(Number(_vm.numQuestions[paraIndex]), function(
+                    quesIndex
+                  ) {
                     return _c(
                       "div",
                       {
-                        key: ques,
+                        key: quesIndex,
                         class: "paragraph_" + para,
                         staticStyle: { "padding-top": "10px" }
                       },
@@ -40202,263 +40259,508 @@ var render = function() {
                           _vm._v(
                             "Question " +
                               _vm._s(
-                                ques +
+                                quesIndex -
+                                  1 +
                                   _vm.startAt +
-                                  _vm.sumOfPreviousQuestions(para) -
-                                  1
+                                  _vm.sumOfPreviousQuestions(paraIndex)
                               ) +
                               ":"
                           )
                         ]),
                         _c("br"),
                         _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            name:
-                              "question[" +
-                              (ques +
-                                _vm.startAt +
-                                _vm.sumOfPreviousQuestions(para) -
-                                1) +
-                              "]",
-                            placeholder: "Question",
-                            value: "Question",
-                            required: ""
-                          }
-                        }),
+                        typeof para.part7[quesIndex - 1] !== "undefined"
+                          ? _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "question[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Question"
+                              },
+                              domProps: {
+                                value: para.part7[quesIndex - 1].question
+                              }
+                            })
+                          : _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "question[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Question"
+                              }
+                            }),
                         _c("br"),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
                           _c("label", [_vm._v("Loại câu hỏi")]),
                           _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              staticClass: "form-control",
-                              attrs: {
-                                name:
-                                  "questionType[" +
-                                  (ques +
-                                    _vm.startAt +
-                                    _vm.sumOfPreviousQuestions(para) -
-                                    1) +
-                                  "]",
-                                required: ""
-                              }
-                            },
-                            [
-                              _c(
-                                "option",
+                          typeof para.part7[quesIndex - 1] !== "undefined"
+                            ? _c(
+                                "select",
                                 {
+                                  staticClass: "form-control",
                                   attrs: {
-                                    value: "0",
-                                    disabled: "",
-                                    selected: ""
+                                    name:
+                                      "questionType[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]"
                                   }
                                 },
-                                [_vm._v("Chọn dạng câu hỏi")]
-                              ),
-                              _vm._v(" "),
-                              _vm._l(_vm.questionTypes, function(qtype) {
-                                return _c(
-                                  "option",
-                                  {
-                                    key: qtype.id,
-                                    domProps: { value: qtype.id }
-                                  },
-                                  [_vm._v(_vm._s(qtype.type))]
-                                )
-                              })
-                            ],
-                            2
-                          )
+                                [
+                                  _c("option", { attrs: { disabled: "" } }, [
+                                    _vm._v("Chọn dạng câu hỏi")
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.questionTypes, function(qtype) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: qtype.id,
+                                        domProps: {
+                                          value: qtype.id,
+                                          selected:
+                                            para.part7[quesIndex - 1]
+                                              .question_type_id == qtype.id
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(qtype.type))]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
+                            : _c(
+                                "select",
+                                {
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    name:
+                                      "questionType[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "option",
+                                    {
+                                      attrs: {
+                                        disabled: "",
+                                        value: "0",
+                                        selected: ""
+                                      }
+                                    },
+                                    [_vm._v("Chọn dạng câu hỏi")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.questionTypes, function(qtype) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: qtype.id,
+                                        domProps: { value: qtype.id }
+                                      },
+                                      [_vm._v(_vm._s(qtype.type))]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
                         ]),
                         _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            name:
-                              "choiceA[" +
-                              (ques +
-                                _vm.startAt +
-                                _vm.sumOfPreviousQuestions(para) -
-                                1) +
-                              "]",
-                            placeholder: "Answer A",
-                            value: "Answer",
-                            required: ""
-                          }
-                        }),
+                        typeof para.part7[quesIndex - 1] !== "undefined"
+                          ? _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "choiceA[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Answer A"
+                              },
+                              domProps: {
+                                value: para.part7[quesIndex - 1].choice_A
+                              }
+                            })
+                          : _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "choiceA[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Answer A"
+                              }
+                            }),
+                        _vm._v(" "),
                         _c("br"),
                         _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            name:
-                              "choiceB[" +
-                              (ques +
-                                _vm.startAt +
-                                _vm.sumOfPreviousQuestions(para) -
-                                1) +
-                              "]",
-                            placeholder: "Answer B",
-                            value: "Answer",
-                            required: ""
-                          }
-                        }),
+                        typeof para.part7[quesIndex - 1] !== "undefined"
+                          ? _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "choiceB[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Answer B"
+                              },
+                              domProps: {
+                                value: para.part7[quesIndex - 1].choice_B
+                              }
+                            })
+                          : _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "choiceB[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Answer B"
+                              }
+                            }),
+                        _vm._v(" "),
                         _c("br"),
                         _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            name:
-                              "choiceC[" +
-                              (ques +
-                                _vm.startAt +
-                                _vm.sumOfPreviousQuestions(para) -
-                                1) +
-                              "]",
-                            placeholder: "Answer C",
-                            value: "Answer",
-                            required: ""
-                          }
-                        }),
+                        typeof para.part7[quesIndex - 1] !== "undefined"
+                          ? _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "choiceC[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Answer C"
+                              },
+                              domProps: {
+                                value: para.part7[quesIndex - 1].choice_C
+                              }
+                            })
+                          : _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "choiceC[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Answer C"
+                              }
+                            }),
+                        _vm._v(" "),
                         _c("br"),
                         _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "text",
-                            name:
-                              "choiceD[" +
-                              (ques +
-                                _vm.startAt +
-                                _vm.sumOfPreviousQuestions(para) -
-                                1) +
-                              "]",
-                            placeholder: "Answer D",
-                            value: "Answer",
-                            required: ""
-                          }
-                        }),
+                        typeof para.part7[quesIndex - 1] !== "undefined"
+                          ? _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "choiceD[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Answer D"
+                              },
+                              domProps: {
+                                value: para.part7[quesIndex - 1].choice_D
+                              }
+                            })
+                          : _c("input", {
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                name:
+                                  "choiceD[" +
+                                  (quesIndex -
+                                    1 +
+                                    _vm.startAt +
+                                    _vm.sumOfPreviousQuestions(paraIndex)) +
+                                  "]",
+                                placeholder: "Answer D"
+                              }
+                            }),
                         _vm._v(" "),
                         _c("b", [_vm._v("Answer choice:")]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "col-md-1" }, [
-                            _c(
-                              "p",
-                              {
-                                staticStyle: {
-                                  float: "left",
-                                  "margin-right": "5px"
-                                }
-                              },
-                              [_vm._v("A")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              attrs: {
-                                type: "radio",
-                                name:
-                                  "answer[" +
-                                  (ques +
-                                    _vm.startAt +
-                                    _vm.sumOfPreviousQuestions(para) -
-                                    1) +
-                                  "]",
-                                value: "A",
-                                checked: ""
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-1" }, [
-                            _c(
-                              "p",
-                              {
-                                staticStyle: {
-                                  float: "left",
-                                  "margin-right": "5px"
-                                }
-                              },
-                              [_vm._v("B")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              attrs: {
-                                type: "radio",
-                                name:
-                                  "answer[" +
-                                  (ques +
-                                    _vm.startAt +
-                                    _vm.sumOfPreviousQuestions(para) -
-                                    1) +
-                                  "]",
-                                value: "B"
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-1" }, [
-                            _c(
-                              "p",
-                              {
-                                staticStyle: {
-                                  float: "left",
-                                  "margin-right": "5px"
-                                }
-                              },
-                              [_vm._v("C")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              attrs: {
-                                type: "radio",
-                                name:
-                                  "answer[" +
-                                  (ques +
-                                    _vm.startAt +
-                                    _vm.sumOfPreviousQuestions(para) -
-                                    1) +
-                                  "]",
-                                value: "C"
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-md-1" }, [
-                            _c(
-                              "p",
-                              {
-                                staticStyle: {
-                                  float: "left",
-                                  "margin-right": "5px"
-                                }
-                              },
-                              [_vm._v("D")]
-                            ),
-                            _vm._v(" "),
-                            _c("input", {
-                              attrs: {
-                                type: "radio",
-                                name:
-                                  "answer[" +
-                                  (ques +
-                                    _vm.startAt +
-                                    _vm.sumOfPreviousQuestions(para) -
-                                    1) +
-                                  "]",
-                                value: "D"
-                              }
-                            })
-                          ])
-                        ])
+                        typeof para.part7[quesIndex - 1] !== "undefined"
+                          ? _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-md-1" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: {
+                                      float: "left",
+                                      "margin-right": "5px"
+                                    }
+                                  },
+                                  [_vm._v("A")]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name:
+                                      "answer[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]",
+                                    value: "A"
+                                  },
+                                  domProps: {
+                                    checked:
+                                      para.part7[quesIndex - 1].answer == "A"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-1" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: {
+                                      float: "left",
+                                      "margin-right": "5px"
+                                    }
+                                  },
+                                  [_vm._v("B")]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name:
+                                      "answer[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]",
+                                    value: "B"
+                                  },
+                                  domProps: {
+                                    checked:
+                                      para.part7[quesIndex - 1].answer == "B"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-1" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: {
+                                      float: "left",
+                                      "margin-right": "5px"
+                                    }
+                                  },
+                                  [_vm._v("C")]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name:
+                                      "answer[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]",
+                                    value: "C"
+                                  },
+                                  domProps: {
+                                    checked:
+                                      para.part7[quesIndex - 1].answer == "C"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-1" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: {
+                                      float: "left",
+                                      "margin-right": "5px"
+                                    }
+                                  },
+                                  [_vm._v("D")]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name:
+                                      "answer[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]",
+                                    value: "D"
+                                  },
+                                  domProps: {
+                                    checked:
+                                      para.part7[quesIndex - 1].answer == "D"
+                                  }
+                                })
+                              ])
+                            ])
+                          : _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col-md-1" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: {
+                                      float: "left",
+                                      "margin-right": "5px"
+                                    }
+                                  },
+                                  [_vm._v("A")]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name:
+                                      "answer[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]",
+                                    value: "A"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-1" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: {
+                                      float: "left",
+                                      "margin-right": "5px"
+                                    }
+                                  },
+                                  [_vm._v("B")]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name:
+                                      "answer[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]",
+                                    value: "B"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-1" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: {
+                                      float: "left",
+                                      "margin-right": "5px"
+                                    }
+                                  },
+                                  [_vm._v("C")]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name:
+                                      "answer[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]",
+                                    value: "C"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-md-1" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticStyle: {
+                                      float: "left",
+                                      "margin-right": "5px"
+                                    }
+                                  },
+                                  [_vm._v("D")]
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name:
+                                      "answer[" +
+                                      (quesIndex -
+                                        1 +
+                                        _vm.startAt +
+                                        _vm.sumOfPreviousQuestions(paraIndex)) +
+                                      "]",
+                                    value: "D"
+                                  }
+                                })
+                              ])
+                            ])
                       ]
                     )
                   })
@@ -52709,17 +53011,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/CreateExam.vue":
-/*!************************************************************!*\
-  !*** ./resources/js/components/exam/create/CreateExam.vue ***!
-  \************************************************************/
+/***/ "./resources/js/components/exam/edit/EditExam.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditExam.vue ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CreateExam_vue_vue_type_template_id_09bd0569___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateExam.vue?vue&type=template&id=09bd0569& */ "./resources/js/components/exam/create/CreateExam.vue?vue&type=template&id=09bd0569&");
-/* harmony import */ var _CreateExam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateExam.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/create/CreateExam.vue?vue&type=script&lang=js&");
+/* harmony import */ var _EditExam_vue_vue_type_template_id_6dc27f2e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditExam.vue?vue&type=template&id=6dc27f2e& */ "./resources/js/components/exam/edit/EditExam.vue?vue&type=template&id=6dc27f2e&");
+/* harmony import */ var _EditExam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditExam.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/edit/EditExam.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52729,9 +53031,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CreateExam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CreateExam_vue_vue_type_template_id_09bd0569___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CreateExam_vue_vue_type_template_id_09bd0569___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _EditExam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditExam_vue_vue_type_template_id_6dc27f2e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditExam_vue_vue_type_template_id_6dc27f2e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -52741,54 +53043,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/exam/create/CreateExam.vue"
+component.options.__file = "resources/js/components/exam/edit/EditExam.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/CreateExam.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/CreateExam.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditExam.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditExam.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateExam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateExam.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/CreateExam.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateExam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditExam.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditExam.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/CreateExam.vue?vue&type=template&id=09bd0569&":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/CreateExam.vue?vue&type=template&id=09bd0569& ***!
-  \*******************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditExam.vue?vue&type=template&id=6dc27f2e&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditExam.vue?vue&type=template&id=6dc27f2e& ***!
+  \***************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateExam_vue_vue_type_template_id_09bd0569___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateExam.vue?vue&type=template&id=09bd0569& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/CreateExam.vue?vue&type=template&id=09bd0569&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateExam_vue_vue_type_template_id_09bd0569___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExam_vue_vue_type_template_id_6dc27f2e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditExam.vue?vue&type=template&id=6dc27f2e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditExam.vue?vue&type=template&id=6dc27f2e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExam_vue_vue_type_template_id_6dc27f2e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateExam_vue_vue_type_template_id_09bd0569___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditExam_vue_vue_type_template_id_6dc27f2e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart1.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart1.vue ***!
-  \*************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart1.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart1.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createPart1_vue_vue_type_template_id_024c1a64___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createPart1.vue?vue&type=template&id=024c1a64& */ "./resources/js/components/exam/create/createPart1.vue?vue&type=template&id=024c1a64&");
-/* harmony import */ var _createPart1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPart1.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/create/createPart1.vue?vue&type=script&lang=js&");
+/* harmony import */ var _EditPart1_vue_vue_type_template_id_18971178___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPart1.vue?vue&type=template&id=18971178& */ "./resources/js/components/exam/edit/EditPart1.vue?vue&type=template&id=18971178&");
+/* harmony import */ var _EditPart1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPart1.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/edit/EditPart1.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52798,9 +53100,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _createPart1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _createPart1_vue_vue_type_template_id_024c1a64___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _createPart1_vue_vue_type_template_id_024c1a64___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _EditPart1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditPart1_vue_vue_type_template_id_18971178___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditPart1_vue_vue_type_template_id_18971178___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -52810,54 +53112,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/exam/create/createPart1.vue"
+component.options.__file = "resources/js/components/exam/edit/EditPart1.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart1.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart1.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart1.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart1.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart1.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart1.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart1.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart1.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart1_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart1.vue?vue&type=template&id=024c1a64&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart1.vue?vue&type=template&id=024c1a64& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart1.vue?vue&type=template&id=18971178&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart1.vue?vue&type=template&id=18971178& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart1_vue_vue_type_template_id_024c1a64___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart1.vue?vue&type=template&id=024c1a64& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart1.vue?vue&type=template&id=024c1a64&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart1_vue_vue_type_template_id_024c1a64___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart1_vue_vue_type_template_id_18971178___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart1.vue?vue&type=template&id=18971178& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart1.vue?vue&type=template&id=18971178&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart1_vue_vue_type_template_id_18971178___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart1_vue_vue_type_template_id_024c1a64___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart1_vue_vue_type_template_id_18971178___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart2.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart2.vue ***!
-  \*************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart2.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart2.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createPart2_vue_vue_type_template_id_025a31e5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createPart2.vue?vue&type=template&id=025a31e5& */ "./resources/js/components/exam/create/createPart2.vue?vue&type=template&id=025a31e5&");
-/* harmony import */ var _createPart2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPart2.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/create/createPart2.vue?vue&type=script&lang=js&");
+/* harmony import */ var _EditPart2_vue_vue_type_template_id_187ae276___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPart2.vue?vue&type=template&id=187ae276& */ "./resources/js/components/exam/edit/EditPart2.vue?vue&type=template&id=187ae276&");
+/* harmony import */ var _EditPart2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPart2.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/edit/EditPart2.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52867,9 +53169,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _createPart2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _createPart2_vue_vue_type_template_id_025a31e5___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _createPart2_vue_vue_type_template_id_025a31e5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _EditPart2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditPart2_vue_vue_type_template_id_187ae276___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditPart2_vue_vue_type_template_id_187ae276___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -52879,54 +53181,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/exam/create/createPart2.vue"
+component.options.__file = "resources/js/components/exam/edit/EditPart2.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart2.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart2.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart2.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart2.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart2.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart2.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart2.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart2.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart2_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart2.vue?vue&type=template&id=025a31e5&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart2.vue?vue&type=template&id=025a31e5& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart2.vue?vue&type=template&id=187ae276&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart2.vue?vue&type=template&id=187ae276& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart2_vue_vue_type_template_id_025a31e5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart2.vue?vue&type=template&id=025a31e5& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart2.vue?vue&type=template&id=025a31e5&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart2_vue_vue_type_template_id_025a31e5___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart2_vue_vue_type_template_id_187ae276___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart2.vue?vue&type=template&id=187ae276& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart2.vue?vue&type=template&id=187ae276&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart2_vue_vue_type_template_id_187ae276___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart2_vue_vue_type_template_id_025a31e5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart2_vue_vue_type_template_id_187ae276___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart3.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart3.vue ***!
-  \*************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart3.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart3.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createPart3_vue_vue_type_template_id_02684966___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createPart3.vue?vue&type=template&id=02684966& */ "./resources/js/components/exam/create/createPart3.vue?vue&type=template&id=02684966&");
-/* harmony import */ var _createPart3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPart3.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/create/createPart3.vue?vue&type=script&lang=js&");
+/* harmony import */ var _EditPart3_vue_vue_type_template_id_185eb374___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPart3.vue?vue&type=template&id=185eb374& */ "./resources/js/components/exam/edit/EditPart3.vue?vue&type=template&id=185eb374&");
+/* harmony import */ var _EditPart3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPart3.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/edit/EditPart3.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52936,9 +53238,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _createPart3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _createPart3_vue_vue_type_template_id_02684966___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _createPart3_vue_vue_type_template_id_02684966___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _EditPart3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditPart3_vue_vue_type_template_id_185eb374___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditPart3_vue_vue_type_template_id_185eb374___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -52948,54 +53250,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/exam/create/createPart3.vue"
+component.options.__file = "resources/js/components/exam/edit/EditPart3.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart3.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart3.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart3.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart3.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart3.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart3.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart3.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart3.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart3.vue?vue&type=template&id=02684966&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart3.vue?vue&type=template&id=02684966& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart3.vue?vue&type=template&id=185eb374&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart3.vue?vue&type=template&id=185eb374& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart3_vue_vue_type_template_id_02684966___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart3.vue?vue&type=template&id=02684966& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart3.vue?vue&type=template&id=02684966&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart3_vue_vue_type_template_id_02684966___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart3_vue_vue_type_template_id_185eb374___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart3.vue?vue&type=template&id=185eb374& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart3.vue?vue&type=template&id=185eb374&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart3_vue_vue_type_template_id_185eb374___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart3_vue_vue_type_template_id_02684966___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart3_vue_vue_type_template_id_185eb374___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart4.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart4.vue ***!
-  \*************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart4.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart4.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createPart4_vue_vue_type_template_id_027660e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createPart4.vue?vue&type=template&id=027660e7& */ "./resources/js/components/exam/create/createPart4.vue?vue&type=template&id=027660e7&");
-/* harmony import */ var _createPart4_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPart4.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/create/createPart4.vue?vue&type=script&lang=js&");
+/* harmony import */ var _EditPart4_vue_vue_type_template_id_18428472___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPart4.vue?vue&type=template&id=18428472& */ "./resources/js/components/exam/edit/EditPart4.vue?vue&type=template&id=18428472&");
+/* harmony import */ var _EditPart4_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPart4.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/edit/EditPart4.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -53005,9 +53307,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _createPart4_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _createPart4_vue_vue_type_template_id_027660e7___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _createPart4_vue_vue_type_template_id_027660e7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _EditPart4_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditPart4_vue_vue_type_template_id_18428472___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditPart4_vue_vue_type_template_id_18428472___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -53017,54 +53319,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/exam/create/createPart4.vue"
+component.options.__file = "resources/js/components/exam/edit/EditPart4.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart4.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart4.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart4.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart4.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart4_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart4.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart4.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart4_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart4_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart4.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart4.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart4_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart4.vue?vue&type=template&id=027660e7&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart4.vue?vue&type=template&id=027660e7& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart4.vue?vue&type=template&id=18428472&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart4.vue?vue&type=template&id=18428472& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart4_vue_vue_type_template_id_027660e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart4.vue?vue&type=template&id=027660e7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart4.vue?vue&type=template&id=027660e7&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart4_vue_vue_type_template_id_027660e7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart4_vue_vue_type_template_id_18428472___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart4.vue?vue&type=template&id=18428472& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart4.vue?vue&type=template&id=18428472&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart4_vue_vue_type_template_id_18428472___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart4_vue_vue_type_template_id_027660e7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart4_vue_vue_type_template_id_18428472___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart5.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart5.vue ***!
-  \*************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart5.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart5.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createPart5_vue_vue_type_template_id_02847868___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createPart5.vue?vue&type=template&id=02847868& */ "./resources/js/components/exam/create/createPart5.vue?vue&type=template&id=02847868&");
-/* harmony import */ var _createPart5_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPart5.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/create/createPart5.vue?vue&type=script&lang=js&");
+/* harmony import */ var _EditPart5_vue_vue_type_template_id_18265570___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPart5.vue?vue&type=template&id=18265570& */ "./resources/js/components/exam/edit/EditPart5.vue?vue&type=template&id=18265570&");
+/* harmony import */ var _EditPart5_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPart5.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/edit/EditPart5.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -53074,9 +53376,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _createPart5_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _createPart5_vue_vue_type_template_id_02847868___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _createPart5_vue_vue_type_template_id_02847868___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _EditPart5_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditPart5_vue_vue_type_template_id_18265570___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditPart5_vue_vue_type_template_id_18265570___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -53086,54 +53388,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/exam/create/createPart5.vue"
+component.options.__file = "resources/js/components/exam/edit/EditPart5.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart5.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart5.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart5.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart5.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart5_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart5.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart5.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart5_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart5_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart5.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart5.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart5_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart5.vue?vue&type=template&id=02847868&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart5.vue?vue&type=template&id=02847868& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart5.vue?vue&type=template&id=18265570&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart5.vue?vue&type=template&id=18265570& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart5_vue_vue_type_template_id_02847868___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart5.vue?vue&type=template&id=02847868& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart5.vue?vue&type=template&id=02847868&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart5_vue_vue_type_template_id_02847868___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart5_vue_vue_type_template_id_18265570___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart5.vue?vue&type=template&id=18265570& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart5.vue?vue&type=template&id=18265570&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart5_vue_vue_type_template_id_18265570___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart5_vue_vue_type_template_id_02847868___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart5_vue_vue_type_template_id_18265570___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart6.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart6.vue ***!
-  \*************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart6.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart6.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createPart6_vue_vue_type_template_id_02928fe9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createPart6.vue?vue&type=template&id=02928fe9& */ "./resources/js/components/exam/create/createPart6.vue?vue&type=template&id=02928fe9&");
-/* harmony import */ var _createPart6_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPart6.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/create/createPart6.vue?vue&type=script&lang=js&");
+/* harmony import */ var _EditPart6_vue_vue_type_template_id_180a266e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPart6.vue?vue&type=template&id=180a266e& */ "./resources/js/components/exam/edit/EditPart6.vue?vue&type=template&id=180a266e&");
+/* harmony import */ var _EditPart6_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPart6.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/edit/EditPart6.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -53143,9 +53445,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _createPart6_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _createPart6_vue_vue_type_template_id_02928fe9___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _createPart6_vue_vue_type_template_id_02928fe9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _EditPart6_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditPart6_vue_vue_type_template_id_180a266e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditPart6_vue_vue_type_template_id_180a266e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -53155,54 +53457,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/exam/create/createPart6.vue"
+component.options.__file = "resources/js/components/exam/edit/EditPart6.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart6.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart6.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart6.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart6.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart6_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart6.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart6.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart6_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart6_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart6.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart6.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart6_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart6.vue?vue&type=template&id=02928fe9&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart6.vue?vue&type=template&id=02928fe9& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart6.vue?vue&type=template&id=180a266e&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart6.vue?vue&type=template&id=180a266e& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart6_vue_vue_type_template_id_02928fe9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart6.vue?vue&type=template&id=02928fe9& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart6.vue?vue&type=template&id=02928fe9&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart6_vue_vue_type_template_id_02928fe9___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart6_vue_vue_type_template_id_180a266e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart6.vue?vue&type=template&id=180a266e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart6.vue?vue&type=template&id=180a266e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart6_vue_vue_type_template_id_180a266e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart6_vue_vue_type_template_id_02928fe9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart6_vue_vue_type_template_id_180a266e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart7.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart7.vue ***!
-  \*************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart7.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart7.vue ***!
+  \*********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _createPart7_vue_vue_type_template_id_02a0a76a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createPart7.vue?vue&type=template&id=02a0a76a& */ "./resources/js/components/exam/create/createPart7.vue?vue&type=template&id=02a0a76a&");
-/* harmony import */ var _createPart7_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPart7.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/create/createPart7.vue?vue&type=script&lang=js&");
+/* harmony import */ var _EditPart7_vue_vue_type_template_id_17edf76c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPart7.vue?vue&type=template&id=17edf76c& */ "./resources/js/components/exam/edit/EditPart7.vue?vue&type=template&id=17edf76c&");
+/* harmony import */ var _EditPart7_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPart7.vue?vue&type=script&lang=js& */ "./resources/js/components/exam/edit/EditPart7.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -53212,9 +53514,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _createPart7_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _createPart7_vue_vue_type_template_id_02a0a76a___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _createPart7_vue_vue_type_template_id_02a0a76a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _EditPart7_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditPart7_vue_vue_type_template_id_17edf76c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EditPart7_vue_vue_type_template_id_17edf76c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -53224,47 +53526,47 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/exam/create/createPart7.vue"
+component.options.__file = "resources/js/components/exam/edit/EditPart7.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart7.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart7.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart7.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart7.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart7_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart7.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart7.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart7_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart7_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart7.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart7.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart7_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/exam/create/createPart7.vue?vue&type=template&id=02a0a76a&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/exam/create/createPart7.vue?vue&type=template&id=02a0a76a& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/components/exam/edit/EditPart7.vue?vue&type=template&id=17edf76c&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/exam/edit/EditPart7.vue?vue&type=template&id=17edf76c& ***!
+  \****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart7_vue_vue_type_template_id_02a0a76a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./createPart7.vue?vue&type=template&id=02a0a76a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/create/createPart7.vue?vue&type=template&id=02a0a76a&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart7_vue_vue_type_template_id_02a0a76a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart7_vue_vue_type_template_id_17edf76c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./EditPart7.vue?vue&type=template&id=17edf76c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/exam/edit/EditPart7.vue?vue&type=template&id=17edf76c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart7_vue_vue_type_template_id_17edf76c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createPart7_vue_vue_type_template_id_02a0a76a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPart7_vue_vue_type_template_id_17edf76c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/create_exam.js":
-/*!*************************************!*\
-  !*** ./resources/js/create_exam.js ***!
-  \*************************************/
+/***/ "./resources/js/edit_exam.js":
+/*!***********************************!*\
+  !*** ./resources/js/edit_exam.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -53272,22 +53574,22 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 var create_exam = new Vue({
-  el: '#create_exam',
+  el: '#edit_exam',
   components: {
-    'create-exam-form': __webpack_require__(/*! ./components/exam/create/CreateExam */ "./resources/js/components/exam/create/CreateExam.vue")["default"]
+    'edit-exam-form': __webpack_require__(/*! ./components/exam/edit/EditExam */ "./resources/js/components/exam/edit/EditExam.vue")["default"]
   }
 });
 
 /***/ }),
 
-/***/ 0:
-/*!*******************************************!*\
-  !*** multi ./resources/js/create_exam.js ***!
-  \*******************************************/
+/***/ 1:
+/*!*****************************************!*\
+  !*** multi ./resources/js/edit_exam.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /mnt/d/xampp/htdocs/doan/resources/js/create_exam.js */"./resources/js/create_exam.js");
+module.exports = __webpack_require__(/*! /mnt/d/xampp/htdocs/doan/resources/js/edit_exam.js */"./resources/js/edit_exam.js");
 
 
 /***/ })

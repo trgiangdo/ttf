@@ -12,13 +12,13 @@
             <div id="testheader">
                 <span id="instructions">
                     <p> <b>Directions:</b> For each question in this part, you will hear four statements about a picture in your test book. When you hear the statements, you must select the one statement that best describes what you see in the picture. Then find the number of the question on your answer sheet and mark your answer. The statements will not be printed in your test book and will be spoken only one time. Look at the example below.</p>
-                    <input id="img_test1" type="file" name="part1_example_img" class="form-control hidden" @change="changeImg($event, 0)">
+                    <input id="img_test1" type="file" name="part1_example_image" class="form-control hidden" @change="changeImg($event, 0)" required>
                     <div class="example">
                         <label for="img_test1"> <img style="max-width: 300px; max-height: 100%;" id="img_example" :src="imageUrl[0]"></label>
                     </div>
-                    <textarea class="form-control" type="text" name="part1_example"  placeholder="Guide to choose the answer" style="height: 100px;"></textarea><br>
+                    <textarea class="form-control" type="text" name="part1_example"  placeholder="Guide to choose the answer" style="height: 100px;" required></textarea><br>
                     <b>Audio: </b><br>
-                    <input type="file" name="part1_audio"/><br>
+                    <input type="file" name="part1_audio" required/><br>
                 </span>
             </div>
         </div>
@@ -30,13 +30,13 @@
             <div class="row">
                 <div class="form-group">
                     <label>Loại câu hỏi</label>
-                    <select :name="'questionType[' + Number(ques) + ']'" class="form-control">
+                    <select :name="'questionType[' + Number(ques) + ']'" class="form-control" required>
                         <option value="0" disabled selected>Chọn dạng câu hỏi</option>
                         <option v-for="qtype in questionTypes" :key="qtype.id" :value="qtype.id">{{qtype.type}}</option>
                     </select>
                 </div>
                 <div class=" col-md-8 image">
-                    <input :id="'img_question_' + ques" type="file" :name="'image[' + ques + ']'" class="form-control hidden" @change="changeImg($event, ques)">
+                    <input :id="'img_question_' + ques" type="file" :name="'image[' + ques + ']'" class="form-control hidden" @change="changeImg($event, ques)" required>
                     <div class="example">
                         <label :for="'img_question_' + ques"> <img style="max-width: 300px; max-height: 100%;" :id="'img_'+ques" :src="imageUrl[ques]"></label>
                     </div>
@@ -47,7 +47,7 @@
                             <li>
                                 <span class="lq-number">A</span>
                                 <span class="my-radio">
-                                    <input type="radio" id="" :name="'answer['+ ques + ']'" value="A">
+                                    <input type="radio" id="" :name="'answer['+ ques + ']'" value="A" checked>
                                 </span>
                             </li>
                             <li>
