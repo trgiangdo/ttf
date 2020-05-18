@@ -209,7 +209,7 @@ class Exam extends Model
         // update Listening part1
         $listening_part1 = $this->listenings->where('Part', 1)->first();
         if ($request->hasFile('part1_audio')) {
-            Storage::delete("part1_audios/$listening_part1->audio_url");
+            Storage::disk('public')->delete("part1_audios/$listening_part1->audio_url");
             $p1_audio = $request->file('part1_audio');
             $p1_audio_fileName = $request->exam_name . '-' . $p1_audio->getClientOriginalName();
             $p1_audio->storeAs('part1_audios', $p1_audio_fileName, 'public');
@@ -222,7 +222,7 @@ class Exam extends Model
         // Update Part1 example
         $part1_example = $listening_part1->example;
         if ($request->hasFile('part1_example_image')) {
-            Storage::delete("images/$part1_example->image_url");
+            Storage::disk('public')->delete("images/$part1_example->image_url");
             $p1_eg_img = $request->file('part1_example_image');
             $p1_eg_img_fileName = $request->exam_name . '-' . $p1_eg_img->getClientOriginalName();
             $p1_eg_img->storeAs('images', $p1_eg_img_fileName, 'public');
@@ -237,7 +237,7 @@ class Exam extends Model
         $part1_questions = $listening_part1->part1;
         for ($ques = 1; $ques < $request->startPart2; $ques++) {
             if (isset($images[$ques])) {
-                Storage::delete("images/" . $part1_questions[$ques-1]->image_url);
+                Storage::disk('public')->delete("images/" . $part1_questions[$ques-1]->image_url);
                 $p1_img = $images[$ques];
                 $p1_img_fileName = $request->exam_name . '-' . $p1_img->getClientOriginalName();
                 $p1_img->storeAs('images', $p1_img_fileName, 'public');
@@ -255,7 +255,7 @@ class Exam extends Model
         // update Listening part2
         $listening_part2 = $this->listenings->where('Part', 2)->first();
         if ($request->hasFile('part2_audio')) {
-            Storage::delete("part2_audios/$listening_part2->audio_url");
+            Storage::disk('public')->delete("part2_audios/$listening_part2->audio_url");
             $p2_audio = $request->file('part2_audio');
             $p2_audio_fileName = $request->exam_name . '-' . $p2_audio->getClientOriginalName();
             $p2_audio->storeAs('part2_audios', $p2_audio_fileName, 'public');
@@ -282,7 +282,7 @@ class Exam extends Model
         // Update Listening Part 3
         $listening_part3 = $this->listenings->where('Part', 3)->first();
         if ($request->hasFile('part3_audio')) {
-            Storage::delete("part3_audios/$listening_part3->audio_url");
+            Storage::disk('public')->delete("part3_audios/$listening_part3->audio_url");
             $p3_audio = $request->file('part3_audio');
             $p3_audio_fileName = $request->exam_name . '-' . $p3_audio->getClientOriginalName();
             $p3_audio->storeAs('part3_audios', $p3_audio_fileName, 'public');
@@ -309,7 +309,7 @@ class Exam extends Model
         // Update Listening Part 4
         $listening_part4 = $this->listenings->where('Part', 4)->first();
         if ($request->hasFile('part4_audio')) {
-            Storage::delete("part4_audios/$listening_part4->audio_url");
+            Storage::disk('public')->delete("part4_audios/$listening_part4->audio_url");
             $p4_audio = $request->file('part4_audio');
             $p4_audio_fileName = $request->exam_name . '-' . $p4_audio->getClientOriginalName();
             $p4_audio->storeAs('part4_audios', $p4_audio_fileName, 'public');
@@ -411,6 +411,29 @@ class Exam extends Model
                 }
             }
             $startOfThisPara += $request->part7_numQuestions[$paraIndex];
+        }
+    }
+
+    public function deleteResources()
+    {
+        foreach ($this->listenings as $key => $listening) {
+            if ($listening->Part == 1) {
+                if (Storage::disk('public')->exists("images/" . $listening->example->image_url)) {
+                    Storage::disk('public')->delete("images/" . $listening->example->image_url);
+                }
+
+                foreach ($listening->part1 as $part1) {
+                    $image_path = "images/" . $part1->image_url;
+                    if (Storage::disk('public')->exists($image_path)) {
+                        Storage::disk('public')->delete($image_path);
+                    }
+                }
+            }
+
+            $audio_path = "part" . ($key+1) . "_audios/" . $listening->audio_url;
+            if (Storage::disk('public')->exists($audio_path)) {
+                Storage::disk('public')->delete($audio_path);
+            }
         }
     }
 }

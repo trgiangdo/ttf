@@ -160,8 +160,12 @@ class ExamController extends Controller
      */
     public function destroy($id)
     {
-        $this->authorize('delete', Exam::findOrFail($id));
-        Exam::where('id', $id)->delete();
+        $exam = Exam::findOrFail($id);
+        $this->authorize('delete', $exam);
+
+        $exam->deleteResources();
+
+        $exam->delete();
         return redirect()->back()->with('status', __('message.edited'));
     }
 }

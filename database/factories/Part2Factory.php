@@ -11,6 +11,6 @@ $factory->define(Part2::class, function (Faker $faker) {
             return factory(App\Exam\Listening::class)->create()->id;
         },
         'question_type_id' => $faker->numberBetween(3, 6),
-        'answer' => $faker->randomElement(['A', 'B', 'C', 'D']),
+        'answer' => $faker->randomElement(['A', 'B', 'C']),
     ];
 });
