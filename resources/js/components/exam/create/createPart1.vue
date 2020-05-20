@@ -14,7 +14,8 @@
                     <p> <b>Directions:</b> For each question in this part, you will hear four statements about a picture in your test book. When you hear the statements, you must select the one statement that best describes what you see in the picture. Then find the number of the question on your answer sheet and mark your answer. The statements will not be printed in your test book and will be spoken only one time. Look at the example below.</p>
                     <input id="img_test1" type="file" name="part1_example_image" class="form-control hidden" @change="changeImg($event, 0)" required>
                     <div class="example">
-                        <label for="img_test1"> <img style="max-width: 300px; max-height: 100%;" id="img_example" :src="imageUrl[0]"></label>
+                        <label for="img_test1">
+                        <img style="max-width: 300px; max-height: 100%;" id="img_example" :src="imageUrl[0]"></label>
                     </div>
                     <textarea class="form-control" type="text" name="part1_example"  placeholder="Guide to choose the answer" style="height: 100px;" required></textarea><br>
                     <b>Audio: </b><br>
@@ -30,16 +31,16 @@
             <div class="row">
                 <div class="form-group">
                     <label>Loại câu hỏi</label>
-                    <select :name="'questionType[' + Number(ques) + ']'" class="form-control" required>
+                    <select :name="'questionType[' + Number(ques) + ']'" class="form-control" v-model="qType[ques]" required>
                         <option value="0" disabled selected>Chọn dạng câu hỏi</option>
                         <option v-for="qtype in questionTypes" :key="qtype.id" :value="qtype.id">{{qtype.type}}</option>
                     </select>
                 </div>
                 <div class=" col-md-8 image">
                     <input :id="'img_question_' + ques" type="file" :name="'image[' + ques + ']'" class="form-control hidden" @change="changeImg($event, ques)" required>
-                    <div class="example">
-                        <label :for="'img_question_' + ques"> <img style="max-width: 300px; max-height: 100%;" :id="'img_'+ques" :src="imageUrl[ques]"></label>
-                    </div>
+                    <label :for="'img_question_' + ques">
+                        <img style="max-width: 300px; max-height: 100%;" :id="'img_'+ques" :src="imageUrl[ques]">
+                    </label>
                 </div>
                 <div class="col-md-4 answer">
                     <div class="choices">
@@ -87,27 +88,48 @@
 
         data() {
             return {
-                imageUrl: []
+                imageUrl: [],
+                qType: []
             }
         },
 
         methods: {
-            changeImg(event, num) {
+            async changeImg(event, num) {
                 const file = event.target.files[0];
-                Vue.set(this.imageUrl, num, URL.createObjectURL(file));
-            }
+
+                await Vue.set(this.imageUrl, num, URL.createObjectURL(file));
+
+                // Update question type of the question that got it's image chaged
+                this.updateImageType(num, event.target.labels[0].childNodes[0]);
+            },
+
+            updateImageType(num, target) {
+                const objectDetector = ml5.objectDetector('yolo', {}, () => {
+                    objectDetector.detect(target, (err, results) => {
+                        if (err) {
+                            console.error(err);
+                        } else if (results[0].label == 'person') {
+                            Vue.set(this.qType, num, 1);
+                        } else {
+                            Vue.set(this.qType, num, 2);
+                        }
+                    });
+                });
+            },
         },
 
         created() {
             for (let i = 0; i <= this.numQuestion; i++) {
                 this.imageUrl.push('https://picsum.photos/250/188');
+                this.qType.push(0);
             }
         },
 
         beforeUpdate() {
             for (let i = this.imageUrl.length; i <= this.numQuestion; i++) {
                 this.imageUrl.push('https://picsum.photos/250/188');
+                this.qType.push(0);
             }
-        }
+        },
     }
 </script>
