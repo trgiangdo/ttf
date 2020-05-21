@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,6 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', User::class);
+
         return view(
             'users.list',
             ['users' => User::select('id', 'email', 'name', 'role')->paginate(10)]
@@ -29,11 +32,10 @@ class UserController extends Controller
      */
     public function editRole($id)
     {
+        $this->authorize('updateRole', User::class);
+
         return view('users.edit')
-                ->with(
-                    'user',
-                    User::findOrFail($id)
-                );
+               ->with('user', User::findOrFail($id));
     }
 
     /**
@@ -45,23 +47,32 @@ class UserController extends Controller
      */
     public function updateRole(Request $request, $id)
     {
+        $this->authorize('updateRole', User::class);
+
         User::where('id', $id)->update(['role' => $request->role]);
-        return redirect()->back()->with('status', __('message.edited'));
+
+        return redirect('user')->with('status', __('message.edited'));
     }
 
     /**
      * Show the form for editing user.
+     *
+     * TODO : Create view for user to update their personal information
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+
+        $this->authorize('update', $user);
     }
 
     /**
      * Update the specified resource in storage.
+     *
+     * TODO : Update user's personal information
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -69,7 +80,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+
+        $this->authorize('update', $user);
     }
 
     /**
@@ -80,29 +93,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::where('id', $id)->delete();
-        return redirect()->back()->with('status', __('message.edited'));
-    }
+        $user = User::find($id);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $this->authorize('delete', $user);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $user->delete();
+
+        return redirect('user')->with('status', __('message.edited'));
     }
 
     /**
@@ -111,8 +108,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        // $progress = SkillScore::where('id_user',Auth::id())->get();
+    	// $score = Score::where('user_id', Auth::id())->get();
+        return view('homepage.profile');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -36,28 +37,17 @@ Route::get('/contact', 'IndexController@contact');
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/profile', 'IndexController@profile');
+    Route::get('/profile', 'UserController@show');
+    Route::get('/profile/edit', 'UserController@edit');
+    Route::put('/profile', 'UserController@update');
 
-    Route::resource('/profile', 'UserController')->only([
-        'edit', 'update', 'destroy'
+    Route::get('/user/role/{user}', 'UserController@editRole')->name('user.editRole');
+    Route::put('/user/role/{user}', 'UserController@updateRole')->name('user.updateRole');
+    Route::post('/user/score', 'UserController@saveScore');
+
+    Route::resource('/user', 'UserController')->only([
+        'index', 'destroy'
     ]);
-
-
-    Route::resource('/blog', 'BlogController')->only([
-        'index', 'show'
-    ]);
-
-    Route::resource('/blog', 'BlogController')->only([
-        'create', 'store'
-    ])->middleware('can:create, \App\Blog');
-
-    Route::resource('/blog', 'BlogController')->only([
-        'edit', 'update'
-    ])->middleware('can:update, blog');
-
-    Route::resource('/blog', 'BlogController')->only([
-        'destroy'
-    ])->middleware('can:forceDelete, blog');
 });
 
 
