@@ -26,29 +26,29 @@ class ExamSeeder extends Seeder
 
         $listening1 = factory(Listening::class)->create(['exam_id' => $exam->id, 'Part' => '1']);
         factory(Example::class)->create(['listening_id' => $listening1->id]);
-        factory(Part1::class, 10)->create(['listening_id' => $listening1->id]);
+        factory(Part1::class, 6)->create(['listening_id' => $listening1->id]);
 
         $listening2 = factory(Listening::class)->create(['exam_id' => $exam->id, 'Part' => '2']);
-        factory(Example::class)->create(['listening_id' => $listening2->id, 'image_url' => '']);
-        factory(Part2::class, 10)->create(['listening_id' => $listening2->id]);
+        factory(Example::class)->create(['listening_id' => $listening2->id, 'image_url' => null]);
+        factory(Part2::class, 25)->create(['listening_id' => $listening2->id]);
 
         $listening3 = factory(Listening::class)->create(['exam_id' => $exam->id, 'Part' => '3']);
-        factory(Part3::class, 10)->create(['listening_id' => $listening3->id]);
+        factory(Part3::class, 39)->create(['listening_id' => $listening3->id]);
 
         $listening4 = factory(Listening::class)->create(['exam_id' => $exam->id, 'Part' => '4']);
-        factory(Part4::class, 10)->create(['listening_id' => $listening4->id]);
+        factory(Part4::class, 30)->create(['listening_id' => $listening4->id]);
 
 
-        factory(Reading::class, 10)->create(['exam_id' => $exam->id, 'Part' => '5'])->each(function ($reading) {
+        factory(Reading::class, 30)->create(['exam_id' => $exam->id, 'Part' => '5'])->each(function ($reading) {
             $reading->part5()->save(factory(Part5::class)->create(['reading_id' => $reading->id]));
         });
 
-        factory(Reading::class, 5)->create(['exam_id' => $exam->id, 'Part' => '6'])->each(function ($reading) {
-            $reading->part6()->saveMany(factory(Part6::class, 3)->create(['reading_id' => $reading->id]));
+        factory(Reading::class, 4)->create(['exam_id' => $exam->id, 'Part' => '6'])->each(function ($reading) {
+            $reading->part6()->saveMany(factory(Part6::class, 4)->create(['reading_id' => $reading->id]));
         });
 
-        factory(Reading::class, 5)->create(['exam_id' => $exam->id, 'Part' => '7'])->each(function ($reading) {
-            $reading->part7()->saveMany(factory(Part7::class, 4)->create(['reading_id' => $reading->id]));
+        factory(Reading::class, 10)->create(['exam_id' => $exam->id, 'Part' => '7'])->each(function ($reading) {
+            $reading->part7()->saveMany(factory(Part7::class, 5)->create(['reading_id' => $reading->id]));
         });
     }
 }

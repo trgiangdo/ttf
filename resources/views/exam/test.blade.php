@@ -4,7 +4,7 @@
 
 <main>
     <div class="container test">
-        <form action="" method="post" accept-charset="utf-8" id="submit_test"  name="checkbtn">
+    <form action="{{ route('user.saveScore') }}" method="post" accept-charset="utf-8" id="submit_test">
             @csrf
             <div class="col-md-3">
             </div>
@@ -57,9 +57,13 @@
                                 </div>
                                 <hr>
                                 <div id="question">
-                                    @foreach($listening_part1->part1 as $part1)
+                                    @php
+                                        $start = 0;
+                                    @endphp
+
+                                    @foreach ($listening_part1->part1 as $part1)
                                         <br>
-                                        <b> Question {{ $loop->iteration }}:</b>
+                                        <b> Question {{ $start + $loop->iteration }}:</b>
                                         <div class="clearfix"></div>
                                         <br>
                                         <img style="width: 250px; height: 100%; float: left;" src="{{asset("storage/images/$part1->image_url")}}" alt="">
@@ -68,35 +72,42 @@
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input class="choice_{{ $loop->iteration }}" type="radio" class="a{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-A" name="nghe_{{ $loop->iteration }}" value="A">
-                                                        <label for="choice{{ $loop->iteration }}-A"></label>
+                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part1_{{ $start + $loop->iteration }}" value="A">
+                                                        <label for="choice{{ $start + $loop->iteration }}-A"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input class="choice_{{ $loop->iteration }}" type="radio" class="a{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-B" name="nghe_{{ $loop->iteration }}" value="B">
-                                                        <label for="choice{{ $loop->iteration }}-B"></label>
+                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part1_{{ $start + $loop->iteration }}" value="B">
+                                                        <label for="choice{{ $start + $loop->iteration }}-B"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input class="choice_{{ $loop->iteration }}" type="radio" class="a{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-C" name="nghe_{{ $loop->iteration }}" value="C">
-                                                        <label for="choice{{ $loop->iteration }}-C"></label>
+                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part1_{{ $start + $loop->iteration }}" value="C">
+                                                        <label for="choice{{ $start + $loop->iteration }}-C"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">D</span>
                                                     <span class="my-radio">
-                                                        <input class="choice_{{ $loop->iteration }}" type="radio" class="a{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-D" name="nghe_{{ $loop->iteration }}" value="D">
-                                                        <label for="choice{{ $loop->iteration }}-D"></label>
+                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part1_{{ $start + $loop->iteration }}" value="D">
+                                                        <label for="choice{{ $start + $loop->iteration }}-D"></label>
                                                     </span>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="clearfix"></div>
                                         <hr>
+
+                                        @if ($loop->last)
+                                            @php
+                                                $start += $loop->count;
+                                            @endphp
+                                        @endif
+
                                     @endforeach
                                 </div>
                             </div>
@@ -119,33 +130,40 @@
                                 <hr>
                                 <div id="question">
                                     @foreach($listening_part2->part2 as $part2)
-                                        <b>Question {{ $loop->iteration }}.</b>
+                                        <b>Question {{ $start + $loop->iteration }}.</b>
                                         <div class="choices">
                                             <ul class="list-question">
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-A" name="nghe_{{ $loop->iteration }}" value="A">
-                                                        <label for="choice{{ $loop->iteration }}-A"></label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part2_{{ $start + $loop->iteration }}" value="A">
+                                                        <label for="choice{{ $start + $loop->iteration }}-A"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-B" name="nghe_{{ $loop->iteration }}" value="B">
-                                                        <label for="choice{{ $loop->iteration }}-B"></label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part2_{{ $start + $loop->iteration }}" value="B">
+                                                        <label for="choice{{ $start + $loop->iteration }}-B"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-C" name="nghe_{{ $loop->iteration }}" value="C">
-                                                        <label for="choice{{ $loop->iteration }}-C"></label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part2_{{ $start + $loop->iteration }}" value="C">
+                                                        <label for="choice{{ $start + $loop->iteration }}-C"></label>
                                                     </span>
                                                 </li>
                                             </ul>
                                         </div>
                                         <hr>
+
+                                        @if ($loop->last)
+                                            @php
+                                                $start += $loop->count;
+                                            @endphp
+                                        @endif
+                    
                                     @endforeach
                                 </div>
                             </div>
@@ -171,39 +189,46 @@
                                 </div>
                                 <div id="question">
                                     @foreach($listening_part3->part3 as $part3)
-                                        <b>{{ $loop->iteration }}.</b> {{$part3->question}}
+                                        <b>{{ $start + $loop->iteration }}.</b> {{$part3->question}}
                                         <div class="choices">
                                             <ul class="list-question">
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-A" name="nghe_{{ $loop->iteration }}" value="A">
-                                                        <label for="choice{{ $loop->iteration }}-A">{{$part3->choice_A}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part3_{{ $start + $loop->iteration }}" value="A">
+                                                        <label for="choice{{ $start + $loop->iteration }}-A">{{$part3->choice_A}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-B" name="nghe_{{ $loop->iteration }}" value="B">
-                                                        <label for="choice{{ $loop->iteration }}-B">{{$part3->choice_B}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part3_{{ $start + $loop->iteration }}" value="B">
+                                                        <label for="choice{{ $start + $loop->iteration }}-B">{{$part3->choice_B}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-C" name="nghe_{{ $loop->iteration }}" value="C">
-                                                        <label for="choice{{ $loop->iteration }}-C">{{$part3->choice_C}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part3_{{ $start + $loop->iteration }}" value="C">
+                                                        <label for="choice{{ $start + $loop->iteration }}-C">{{$part3->choice_C}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">D</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-D" name="nghe_{{ $loop->iteration }}" value="D">
-                                                        <label for="choice{{ $loop->iteration }}-D">{{$part3->choice_D}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part3_{{ $start + $loop->iteration }}" value="D">
+                                                        <label for="choice{{ $start + $loop->iteration }}-D">{{$part3->choice_D}}</label>
                                                     </span>
                                                 </li>
                                             </ul>
                                         </div>
+
+                                        @if ($loop->last)
+                                            @php
+                                                $start += $loop->count;
+                                            @endphp
+                                        @endif
+
                                     @endforeach
                                 </div>
                             </div>
@@ -229,39 +254,46 @@
                                 </div>
                                 <div id="question">
                                     @foreach($listening_part4->part4 as $part4)
-                                        <b>{{ $loop->iteration }}.</b> {{$part4->question}}
+                                        <b>{{ $start + $loop->iteration }}.</b> {{$part4->question}}
                                         <div class="choices">
                                             <ul class="list-question">
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-A" name="nghe_{{ $loop->iteration }}" value="A">
-                                                        <label for="choice{{ $loop->iteration }}-A">{{$part4->choice_A}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part4_{{ $start + $loop->iteration }}" value="A">
+                                                        <label for="choice{{ $start + $loop->iteration }}-A">{{$part4->choice_A}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-B" name="nghe_{{ $loop->iteration }}" value="B">
-                                                        <label for="choice{{ $loop->iteration }}-B">{{$part4->choice_B}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part4_{{ $start + $loop->iteration }}" value="B">
+                                                        <label for="choice{{ $start + $loop->iteration }}-B">{{$part4->choice_B}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-C" name="nghe_{{ $loop->iteration }}" value="C">
-                                                        <label for="choice{{ $loop->iteration }}-C">{{$part4->choice_C}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part4_{{ $start + $loop->iteration }}" value="C">
+                                                        <label for="choice{{ $start + $loop->iteration }}-C">{{$part4->choice_C}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">D</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-D" name="nghe_{{ $loop->iteration }}" value="D">
-                                                        <label for="choice{{ $loop->iteration }}-D">{{$part4->choice_D}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part4_{{ $start + $loop->iteration }}" value="D">
+                                                        <label for="choice{{ $start + $loop->iteration }}-D">{{$part4->choice_D}}</label>
                                                     </span>
                                                 </li>
                                             </ul>
                                         </div>
+
+                                        @if ($loop->last)
+                                            @php
+                                                $start += $loop->count;
+                                            @endphp
+                                        @endif
+
                                     @endforeach
                                 </div>
                             </div>
@@ -287,39 +319,46 @@
                                 </div>
                                 <div id="question">
                                      @foreach($readings_part5 as $reading_part5)
-                                        <b>{{ $loop->iteration }}.</b> {{$reading_part5->paragraph}}
+                                        <b>{{ $start + $loop->iteration }}.</b> {{$reading_part5->paragraph}}
                                         <div class="choices">
                                             <ul class="list-question">
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-A" name="doc_{{ $loop->iteration }}" value="A">
-                                                        <label for="choice{{ $loop->iteration }}-A">{{$reading_part5->part5->choice_A}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part5_{{ $start + $loop->iteration }}" value="A">
+                                                        <label for="choice{{ $start + $loop->iteration }}-A">{{$reading_part5->part5->choice_A}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-B" name="doc_{{ $loop->iteration }}" value="B">
-                                                        <label for="choice{{ $loop->iteration }}-B">{{$reading_part5->part5->choice_B}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part5_{{ $start + $loop->iteration }}" value="B">
+                                                        <label for="choice{{ $start + $loop->iteration }}-B">{{$reading_part5->part5->choice_B}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-C" name="doc_{{ $loop->iteration }}" value="C">
-                                                        <label for="choice{{ $loop->iteration }}-C">{{$reading_part5->part5->choice_C}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part5_{{ $start + $loop->iteration }}" value="C">
+                                                        <label for="choice{{ $start + $loop->iteration }}-C">{{$reading_part5->part5->choice_C}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">D</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $loop->iteration }}" id="choice{{ $loop->iteration }}-D" name="doc_{{ $loop->iteration }}" value="D">
-                                                        <label for="choice{{ $loop->iteration }}-D">{{$reading_part5->part5->choice_D}}</label>
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part5_{{ $start + $loop->iteration }}" value="D">
+                                                        <label for="choice{{ $start + $loop->iteration }}-D">{{$reading_part5->part5->choice_D}}</label>
                                                     </span>
                                                 </li>
                                             </ul>
                                         </div>
+
+                                        @if ($loop->last)
+                                            @php
+                                                $start += $loop->count;
+                                            @endphp
+                                        @endif
+
                                     @endforeach
                                 </div>
                             </div>
@@ -344,43 +383,51 @@
                                 </div>
                                 <div id="question">
                                     @foreach($readings_part6 as $reading_part6)
-                                        <b>Question {{ $loop->iteration }} - {{$loop->iteration + 2}}: Refer to the following text</b><br>
+                                        <b>Question {{ $start + 1 }} - {{ $start + count($reading_part6->part6) }}: Refer to the following text</b><br>
                                         <p>{{ $reading_part6->paragraph }}</p>
-                                        @foreach($reading_part6->part6 as $part6)
-                                            <b>{{ $loop->iteration + $loop->parent->iteration}}.</b><br>
+                                        @foreach ($reading_part6->part6 as $part6)
+                                            <b>{{ $start + $loop->index + 1}}.</b><br>
                                             <div class="choices">
                                                 <ul class="list-question">
                                                     <li>
                                                         <span class="lq-number">A</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $loop->iteration + $loop->parent->iteration}}" id="choice{{ $loop->iteration + $loop->parent->iteration}}-A" name="doc_{{ $loop->iteration + $loop->parent->iteration}}" value="A">
-                                                            <label for="choice{{ $loop->iteration + $loop->parent->iteration}}-A">{{$part6->choice_A}}</label>
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-A" name="part6_{{ $start + $loop->index + 1}}" value="A">
+                                                            <label for="choice{{ $start + $loop->index + 1}}-A">{{$part6->choice_A}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">B</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $loop->iteration + $loop->parent->iteration}}" id="choice{{ $loop->iteration + $loop->parent->iteration}}-B" name="doc_{{ $loop->iteration + $loop->parent->iteration}}" value="B">
-                                                            <label for="choice{{ $loop->iteration + $loop->parent->iteration}}-B">{{$part6->choice_B}}</label>
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-B" name="part6_{{ $start + $loop->index + 1}}" value="B">
+                                                            <label for="choice{{ $start + $loop->index + 1}}-B">{{$part6->choice_B}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">C</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $loop->iteration + $loop->parent->iteration}}" id="choice{{ $loop->iteration + $loop->parent->iteration}}-C" name="doc_{{ $loop->iteration + $loop->parent->iteration}}" value="C">
-                                                            <label for="choice{{ $loop->iteration + $loop->parent->iteration}}-C">{{$part6->choice_C}}</label>
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-C" name="part6_{{ $start + $loop->index + 1}}" value="C">
+                                                            <label for="choice{{ $start + $loop->index + 1}}-C">{{$part6->choice_C}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">D</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $loop->iteration + $loop->parent->iteration}}" id="choice{{ $loop->iteration + $loop->parent->iteration}}-D" name="doc_{{ $loop->iteration + $loop->parent->iteration}}" value="D">
-                                                            <label for="choice{{ $loop->iteration }}-D">{{$part6->choice_D}}</label>
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1 }}" id="choice{{ $start + $loop->iteration + $loop->parent->iteration}}-D" name="part6_{{ $start + $loop->iteration + $loop->parent->iteration}}" value="D">
+                                                            <label for="choice{{ $start + $loop->index + 1 }}-D">{{$part6->choice_D}}</label>
                                                         </span>
                                                     </li>
                                                 </ul>
                                             </div>
+
+                                            @if ($loop->last)
+                                                @php
+                                                    $start += $loop->count;
+                                                @endphp
+                                            @endif
+
                                         @endforeach
+
                                     @endforeach
                                 </div>
                             </div>
@@ -404,42 +451,49 @@
 
                                 <div id="questions">
                                     @foreach($readings_part7 as $reading_part7)
-                                        <b>Question {{ $loop->iteration }} - {{$loop->iteration + 2}}: Refer to the following text</b><br>
+                                        <b>Question {{ $start + 1 }} - {{ $start + count($reading_part7->part7) }}: Refer to the following text</b><br>
                                         <p>{{ $reading_part7->paragraph }}</p>
                                         @foreach($reading_part7->part7 as $part7)
-                                            <b>{{ $loop->iteration + $loop->parent->iteration}}. {{ $part7->question}}</b><br>
+                                            <b>{{ $start + $loop->index + 1}}. {{ $part7->question}}</b><br>
                                             <div class="choices">
                                                 <ul class="list-question">
                                                     <li>
                                                         <span class="lq-number">A</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $loop->iteration + $loop->parent->iteration}}" id="choice{{ $loop->iteration + $loop->parent->iteration}}-A" name="doc_{{ $loop->iteration + $loop->parent->iteration}}" value="A">
-                                                            <label for="choice{{ $loop->iteration + $loop->parent->iteration}}-A">{{$part7->choice_A}}</label>
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-A" name="part7_{{ $start + $loop->index + 1}}" value="A">
+                                                            <label for="choice{{ $start + $loop->index + 1}}-A">{{$part7->choice_A}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">B</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $loop->iteration + $loop->parent->iteration}}" id="choice{{ $loop->iteration + $loop->parent->iteration}}-B" name="doc_{{ $loop->iteration + $loop->parent->iteration}}" value="B">
-                                                            <label for="choice{{ $loop->iteration + $loop->parent->iteration}}-B">{{$part7->choice_B}}</label>
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-B" name="part7_{{ $start + $loop->index + 1}}" value="B">
+                                                            <label for="choice{{ $start + $loop->index + 1}}-B">{{$part7->choice_B}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">C</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $loop->iteration + $loop->parent->iteration}}" id="choice{{ $loop->iteration + $loop->parent->iteration}}-C" name="doc_{{ $loop->iteration + $loop->parent->iteration}}" value="C">
-                                                            <label for="choice{{ $loop->iteration + $loop->parent->iteration}}-C">{{$part7->choice_C}}</label>
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-C" name="part7_{{ $start + $loop->index + 1}}" value="C">
+                                                            <label for="choice{{ $start + $loop->index + 1}}-C">{{$part7->choice_C}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">D</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $loop->iteration + $loop->parent->iteration}}" id="choice{{ $loop->iteration + $loop->parent->iteration}}-D" name="doc_{{ $loop->iteration + $loop->parent->iteration}}" value="D">
-                                                            <label for="choice{{ $loop->iteration }}-D">{{$part7->choice_D}}</label>
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-D" name="part7_{{ $start + $loop->index + 1}}" value="D">
+                                                            <label for="choice{{ $start + $loop->index + 1 }}-D">{{$part7->choice_D}}</label>
                                                         </span>
                                                     </li>
                                                 </ul>
                                             </div>
+
+                                            @if ($loop->last)
+                                                @php
+                                                    $start += $loop->count;
+                                                @endphp
+                                            @endif
+
                                         @endforeach
                                     @endforeach
                                 </div>

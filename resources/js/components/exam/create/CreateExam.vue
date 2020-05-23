@@ -40,7 +40,7 @@
                 <create-part3 :numQuestion="numQuestionPart3" :questionTypes="getQuestionTypes(3)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2"></create-part3>
                 <create-part4 :numQuestion="numQuestionPart4" :questionTypes="getQuestionTypes(4)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3"></create-part4>
                 <create-part5 :numQuestion="numQuestionPart5" :questionTypes="getQuestionTypes(5)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4"></create-part5>
-                <create-part6 :numParagraph="numParagraphPart6" :questionTypes="getQuestionTypes(6)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4 + this.numQuestionPart5"></create-part6>
+                <create-part6 :numParagraph="numParagraphPart6" :numQuestion="quesionPerParaPart6" :questionTypes="getQuestionTypes(6)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4 + this.numQuestionPart5"></create-part6>
                 <create-part7 :numParagraph="numParagraphPart7" :questionTypes="getQuestionTypes(7)" :startAt="1 + this.numQuestionPart1 + this.numQuestionPart2 + this.numQuestionPart3 + this.numQuestionPart4 + this.numQuestionPart5 + this.numParagraphPart6*3"></create-part7>
             </div>
         </div>
@@ -66,13 +66,14 @@ export default {
     data() {
         return {
             exam_type: 1,
-            numQuestionPart1: 1,
-            numQuestionPart2: 1,
-            numQuestionPart3: 1,
-            numQuestionPart4: 1,
-            numQuestionPart5: 1,
-            numParagraphPart6: 1,
-            numParagraphPart7: 1,
+            numQuestionPart1: 0,
+            numQuestionPart2: 0,
+            numQuestionPart3: 0,
+            numQuestionPart4: 0,
+            numQuestionPart5: 0,
+            numParagraphPart6: 0,
+            quesionPerParaPart6: 0,
+            numParagraphPart7: 0,
         }
     },
 
@@ -83,21 +84,23 @@ export default {
 
         updateNumberOfQuestions() {
             if (this.exam_type == 1) {
-                this.numQuestionPart1 = 1;
-                this.numQuestionPart2 = 1;
-                this.numQuestionPart3 = 1;
-                this.numQuestionPart4 = 1;
-                this.numQuestionPart5 = 1;
-                this.numParagraphPart6 = 1;
-                this.numParagraphPart7 = 1;
-            } else if (this.exam_type == 2) {
-                this.numQuestionPart1 = 4;
-                this.numQuestionPart2 = 4;
-                this.numQuestionPart3 = 4;
-                this.numQuestionPart4 = 4;
-                this.numQuestionPart5 = 4;
+                this.numQuestionPart1 = 10;
+                this.numQuestionPart2 = 30;
+                this.numQuestionPart3 = 30;
+                this.numQuestionPart4 = 30;
+                this.numQuestionPart5 = 40;
                 this.numParagraphPart6 = 4;
-                this.numParagraphPart7 = 4;
+                this.quesionPerParaPart6 = 3;
+                this.numParagraphPart7 = 14;
+            } else if (this.exam_type == 2) {
+                this.numQuestionPart1 = 6;
+                this.numQuestionPart2 = 25;
+                this.numQuestionPart3 = 39;
+                this.numQuestionPart4 = 30;
+                this.numQuestionPart5 = 30;
+                this.numParagraphPart6 = 4;
+                this.quesionPerParaPart6 = 4;
+                this.numParagraphPart7 = 15;
             }
         }
     },
