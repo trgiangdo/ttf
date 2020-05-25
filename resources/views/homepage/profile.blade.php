@@ -74,28 +74,28 @@
                     </form>
 				</div>
 			</div>
-			{{-- <div id="menu1" class="tab-pane fade" align="center">
+			<div id="menu1" class="tab-pane fade" align="center">
 				<h2> Lịch sử học</h2>
 				<table class="table table-border">
 					<tr>
 						<td>Test</td>
-						<td>Time</td>
-						<td>Reading</td>
-						<td>Listening</td>
-						<td>Sum</td>
+						<td>Test date</td>
+						<td>Listening correct answer</td>
+						<td>Reading correct answer</td>
+						<td>Final score</td>
 					</tr>
 
-					@foreach($test as $item)
+					@foreach($exams as $exam)
 					<tr>
-						<td></td>
-						<td>{{$item->updated_at}}</td>
-						<td>{{$item->so_cau_doc}}/{{$item->diem_doc}}</td>
-						<td>{{$item->so_cau_nghe}}/{{$item->diem_nghe}}</td>
-						<td>{{$item->tong_diem}}</td>
+						<td>{{ $exam->name }}</td>
+						<td>{{ $exam->updated_at }}</td>
+						<td>{{ $exam->scores->listening_correct_answers }}</td>
+						<td>{{ $exam->scores->reading_correct_answers }}</td>
+						<td>{{ $exam->scores->final_score }}</td>
 					</tr>
 					@endforeach
 				</table>
-			</div> --}}
+			</div>
 		</div>
 	</div>
 </main>

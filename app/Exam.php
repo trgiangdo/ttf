@@ -27,7 +27,13 @@ class Exam extends Model
     {
         return $this->belongsToMany('App\User', 'scores')
                     ->using('App\Score')
-                    ->as('scores');
+                    ->as('scores')
+                    ->withPivot([
+                        'listening_correct_answers',
+                        'reading_correct_answers',
+                        'final_score',
+
+                    ])->withTimestamps();
     }
 
     public function compareAnswer($choices)
