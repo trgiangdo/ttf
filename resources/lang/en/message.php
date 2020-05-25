@@ -14,4 +14,6 @@ return [
     */
 
     'permission_error' => 'You do not have permission to access that site',
+    'edited' => 'Successfully editted.',
+    'finish_test' => 'Congratulation. Your result has been saved.',
 ];

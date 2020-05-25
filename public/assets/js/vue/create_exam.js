@@ -1987,13 +1987,14 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       exam_type: 1,
-      numQuestionPart1: 1,
-      numQuestionPart2: 1,
-      numQuestionPart3: 1,
-      numQuestionPart4: 1,
-      numQuestionPart5: 1,
-      numParagraphPart6: 1,
-      numParagraphPart7: 1
+      numQuestionPart1: 0,
+      numQuestionPart2: 0,
+      numQuestionPart3: 0,
+      numQuestionPart4: 0,
+      numQuestionPart5: 0,
+      numParagraphPart6: 0,
+      quesionPerParaPart6: 0,
+      numParagraphPart7: 0
     };
   },
   methods: {
@@ -2004,21 +2005,23 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateNumberOfQuestions: function updateNumberOfQuestions() {
       if (this.exam_type == 1) {
-        this.numQuestionPart1 = 1;
-        this.numQuestionPart2 = 1;
-        this.numQuestionPart3 = 1;
-        this.numQuestionPart4 = 1;
-        this.numQuestionPart5 = 1;
-        this.numParagraphPart6 = 1;
-        this.numParagraphPart7 = 1;
-      } else if (this.exam_type == 2) {
-        this.numQuestionPart1 = 4;
-        this.numQuestionPart2 = 4;
-        this.numQuestionPart3 = 4;
-        this.numQuestionPart4 = 4;
-        this.numQuestionPart5 = 4;
+        this.numQuestionPart1 = 10;
+        this.numQuestionPart2 = 30;
+        this.numQuestionPart3 = 30;
+        this.numQuestionPart4 = 30;
+        this.numQuestionPart5 = 40;
         this.numParagraphPart6 = 4;
-        this.numParagraphPart7 = 4;
+        this.quesionPerParaPart6 = 3;
+        this.numParagraphPart7 = 14;
+      } else if (this.exam_type == 2) {
+        this.numQuestionPart1 = 6;
+        this.numQuestionPart2 = 25;
+        this.numQuestionPart3 = 39;
+        this.numQuestionPart4 = 30;
+        this.numQuestionPart5 = 30;
+        this.numParagraphPart6 = 4;
+        this.quesionPerParaPart6 = 4;
+        this.numParagraphPart7 = 15;
       }
     }
   }
@@ -2624,6 +2627,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     numParagraph: {
+      type: Number,
+      require: true
+    },
+    numQuestion: {
       type: Number,
       require: true
     },
@@ -39283,6 +39290,7 @@ var render = function() {
           _c("create-part6", {
             attrs: {
               numParagraph: _vm.numParagraphPart6,
+              numQuestion: _vm.quesionPerParaPart6,
               questionTypes: _vm.getQuestionTypes(6),
               startAt:
                 1 +
@@ -40650,9 +40658,9 @@ var render = function() {
               _c("b", [
                 _vm._v(
                   "Question " +
-                    _vm._s((para - 1) * 3 + _vm.startAt) +
+                    _vm._s((para - 1) * _vm.numQuestion + _vm.startAt) +
                     " - " +
-                    _vm._s((para - 1) * 3 + _vm.startAt + 2) +
+                    _vm._s((para - 1) * _vm.numQuestion + _vm.startAt + 2) +
                     ": refer to the following text"
                 )
               ]),
@@ -40675,7 +40683,12 @@ var render = function() {
                     _c("b", [
                       _vm._v(
                         "Question " +
-                          _vm._s(ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          _vm._s(
+                            ques +
+                              (para - 1) * _vm.numQuestion +
+                              _vm.startAt -
+                              1
+                          ) +
                           ":"
                       )
                     ]),
@@ -40691,7 +40704,10 @@ var render = function() {
                           attrs: {
                             name:
                               "questionType[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (ques +
+                                (para - 1) * _vm.numQuestion +
+                                _vm.startAt -
+                                1) +
                               "]"
                           }
                         },
@@ -40722,7 +40738,10 @@ var render = function() {
                         type: "text",
                         name:
                           "choiceA[" +
-                          (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          (ques +
+                            (para - 1) * _vm.numQuestion +
+                            _vm.startAt -
+                            1) +
                           "]",
                         placeholder: "Answer A",
                         value: "Answer",
@@ -40737,7 +40756,10 @@ var render = function() {
                         type: "text",
                         name:
                           "choiceB[" +
-                          (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          (ques +
+                            (para - 1) * _vm.numQuestion +
+                            _vm.startAt -
+                            1) +
                           "]",
                         placeholder: "Answer B",
                         value: "Answer",
@@ -40752,7 +40774,10 @@ var render = function() {
                         type: "text",
                         name:
                           "choiceC[" +
-                          (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          (ques +
+                            (para - 1) * _vm.numQuestion +
+                            _vm.startAt -
+                            1) +
                           "]",
                         placeholder: "Answer C",
                         value: "Answer",
@@ -40767,7 +40792,10 @@ var render = function() {
                         type: "text",
                         name:
                           "choiceD[" +
-                          (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                          (ques +
+                            (para - 1) * _vm.numQuestion +
+                            _vm.startAt -
+                            1) +
                           "]",
                         placeholder: "Answer D",
                         value: "Answer",
@@ -40795,7 +40823,10 @@ var render = function() {
                             type: "radio",
                             name:
                               "answer[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (ques +
+                                (para - 1) * _vm.numQuestion +
+                                _vm.startAt -
+                                1) +
                               "]",
                             value: "A",
                             checked: ""
@@ -40820,7 +40851,10 @@ var render = function() {
                             type: "radio",
                             name:
                               "answer[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (ques +
+                                (para - 1) * _vm.numQuestion +
+                                _vm.startAt -
+                                1) +
                               "]",
                             value: "B"
                           }
@@ -40844,7 +40878,10 @@ var render = function() {
                             type: "radio",
                             name:
                               "answer[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (ques +
+                                (para - 1) * _vm.numQuestion +
+                                _vm.startAt -
+                                1) +
                               "]",
                             value: "C"
                           }
@@ -40868,7 +40905,10 @@ var render = function() {
                             type: "radio",
                             name:
                               "answer[" +
-                              (ques + (para - 1) * 3 + _vm.startAt - 1) +
+                              (ques +
+                                (para - 1) * _vm.numQuestion +
+                                _vm.startAt -
+                                1) +
                               "]",
                             value: "D"
                           }

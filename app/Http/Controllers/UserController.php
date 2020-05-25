@@ -5,20 +5,37 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Exam;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of users
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
+        $this->authorize('viewAny', User::class);
+
         return view(
             'users.list',
             ['users' => User::select('id', 'email', 'name', 'role')->paginate(10)]
         );
+    }
+
+    /**
+     * Display user profile.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
+        // $progress = SkillScore::where('id_user',Auth::id())->get();
+        // $score = Score::where('user_id', Auth::id())->get();
+        return view('homepage.profile');
     }
 
     /**
@@ -29,11 +46,10 @@ class UserController extends Controller
      */
     public function editRole($id)
     {
+        $this->authorize('updateRole', User::class);
+
         return view('users.edit')
-                ->with(
-                    'user',
-                    User::findOrFail($id)
-                );
+               ->with('user', User::findOrFail($id));
     }
 
     /**
@@ -45,23 +61,32 @@ class UserController extends Controller
      */
     public function updateRole(Request $request, $id)
     {
+        $this->authorize('updateRole', User::class);
+
         User::where('id', $id)->update(['role' => $request->role]);
-        return redirect()->back()->with('status', __('message.edited'));
+
+        return redirect('user')->with('status', __('message.edited'));
     }
 
     /**
      * Show the form for editing user.
+     *
+     * TODO : Create view for user to update their personal information
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $user = Auth::user();
+
+        $this->authorize('update', $user);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user in storage.
+     *
+     * TODO : Update user's personal information
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -69,50 +94,45 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+
+        $this->authorize('update', $user);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified user from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        User::where('id', $id)->delete();
-        return redirect()->back()->with('status', __('message.edited'));
+        $user = User::find($id);
+
+        $this->authorize('delete', $user);
+
+        $user->delete();
+
+        return redirect('user')->with('status', __('message.edited'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function saveScore(Request $request, $exam_id)
     {
-        //
+        // dd($request);
+
+        $exam = Exam::find($exam_id);
+
+        list($listening_correct_answers, $reading_correct_answers, $final_score) = $exam->compareAnswer($request);
+        // dd($listening_correct_answers);
+
+        $user = Auth::user();
+        $user->exams()->attach($exam_id, [
+            'listening_correct_answers' => $listening_correct_answers,
+            'reading_correct_answers' => $reading_correct_answers,
+            'final_score' => $final_score
+        ]);
+
+        return redirect('profile')->with('status', __('message.finish_test'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 }
