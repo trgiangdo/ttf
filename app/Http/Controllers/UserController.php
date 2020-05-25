@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Exam;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of users
      *
      * @return \Illuminate\Http\Response
      */
@@ -22,6 +23,19 @@ class UserController extends Controller
             'users.list',
             ['users' => User::select('id', 'email', 'name', 'role')->paginate(10)]
         );
+    }
+
+    /**
+     * Display user profile.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
+        // $progress = SkillScore::where('id_user',Auth::id())->get();
+        // $score = Score::where('user_id', Auth::id())->get();
+        return view('homepage.profile');
     }
 
     /**
@@ -70,7 +84,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified user in storage.
      *
      * TODO : Update user's personal information
      *
@@ -86,7 +100,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified user from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -102,16 +116,23 @@ class UserController extends Controller
         return redirect('user')->with('status', __('message.edited'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
+    public function saveScore(Request $request, $exam_id)
     {
-        // $progress = SkillScore::where('id_user',Auth::id())->get();
-    	// $score = Score::where('user_id', Auth::id())->get();
-        return view('homepage.profile');
+        // dd($request);
+
+        $exam = Exam::find($exam_id);
+
+        list($listening_correct_answers, $reading_correct_answers, $final_score) = $exam->compareAnswer($request);
+        // dd($listening_correct_answers);
+
+        $user = Auth::user();
+        $user->exams()->attach($exam_id, [
+            'listening_correct_answers' => $listening_correct_answers,
+            'reading_correct_answers' => $reading_correct_answers,
+            'final_score' => $final_score
+        ]);
+
+        return redirect('profile')->with('status', __('message.finish_test'));
     }
+
 }

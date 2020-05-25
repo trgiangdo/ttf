@@ -4,7 +4,7 @@
 
 <main>
     <div class="container test">
-    <form action="{{ route('user.saveScore') }}" method="post" accept-charset="utf-8" id="submit_test">
+    <form action="{{ route('user.saveScore', ['exam' => $id]) }}" method="post" accept-charset="utf-8" id="submit_test">
             @csrf
             <div class="col-md-3">
             </div>
@@ -72,28 +72,28 @@
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part1_{{ $start + $loop->iteration }}" value="A">
+                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part1[{{ $start + $loop->iteration }}]" value="A">
                                                         <label for="choice{{ $start + $loop->iteration }}-A"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part1_{{ $start + $loop->iteration }}" value="B">
+                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part1[{{ $start + $loop->iteration }}]" value="B">
                                                         <label for="choice{{ $start + $loop->iteration }}-B"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part1_{{ $start + $loop->iteration }}" value="C">
+                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part1[{{ $start + $loop->iteration }}]" value="C">
                                                         <label for="choice{{ $start + $loop->iteration }}-C"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">D</span>
                                                     <span class="my-radio">
-                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part1_{{ $start + $loop->iteration }}" value="D">
+                                                        <input class="choice_{{ $start + $loop->iteration }}" type="radio" class="a{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part1[{{ $start + $loop->iteration }}]" value="D">
                                                         <label for="choice{{ $start + $loop->iteration }}-D"></label>
                                                     </span>
                                                 </li>
@@ -136,21 +136,21 @@
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part2_{{ $start + $loop->iteration }}" value="A">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part2[{{ $start + $loop->iteration }}]" value="A">
                                                         <label for="choice{{ $start + $loop->iteration }}-A"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part2_{{ $start + $loop->iteration }}" value="B">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part2[{{ $start + $loop->iteration }}]" value="B">
                                                         <label for="choice{{ $start + $loop->iteration }}-B"></label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part2_{{ $start + $loop->iteration }}" value="C">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part2[{{ $start + $loop->iteration }}]" value="C">
                                                         <label for="choice{{ $start + $loop->iteration }}-C"></label>
                                                     </span>
                                                 </li>
@@ -163,7 +163,7 @@
                                                 $start += $loop->count;
                                             @endphp
                                         @endif
-                    
+
                                     @endforeach
                                 </div>
                             </div>
@@ -195,28 +195,28 @@
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part3_{{ $start + $loop->iteration }}" value="A">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part3[{{ $start + $loop->iteration }}]" value="A">
                                                         <label for="choice{{ $start + $loop->iteration }}-A">{{$part3->choice_A}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part3_{{ $start + $loop->iteration }}" value="B">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part3[{{ $start + $loop->iteration }}]" value="B">
                                                         <label for="choice{{ $start + $loop->iteration }}-B">{{$part3->choice_B}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part3_{{ $start + $loop->iteration }}" value="C">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part3[{{ $start + $loop->iteration }}]" value="C">
                                                         <label for="choice{{ $start + $loop->iteration }}-C">{{$part3->choice_C}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">D</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part3_{{ $start + $loop->iteration }}" value="D">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part3[{{ $start + $loop->iteration }}]" value="D">
                                                         <label for="choice{{ $start + $loop->iteration }}-D">{{$part3->choice_D}}</label>
                                                     </span>
                                                 </li>
@@ -260,28 +260,28 @@
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part4_{{ $start + $loop->iteration }}" value="A">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part4[{{ $start + $loop->iteration }}]" value="A">
                                                         <label for="choice{{ $start + $loop->iteration }}-A">{{$part4->choice_A}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part4_{{ $start + $loop->iteration }}" value="B">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part4[{{ $start + $loop->iteration }}]" value="B">
                                                         <label for="choice{{ $start + $loop->iteration }}-B">{{$part4->choice_B}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part4_{{ $start + $loop->iteration }}" value="C">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part4[{{ $start + $loop->iteration }}]" value="C">
                                                         <label for="choice{{ $start + $loop->iteration }}-C">{{$part4->choice_C}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">D</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part4_{{ $start + $loop->iteration }}" value="D">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part4[{{ $start + $loop->iteration }}]" value="D">
                                                         <label for="choice{{ $start + $loop->iteration }}-D">{{$part4->choice_D}}</label>
                                                     </span>
                                                 </li>
@@ -325,28 +325,28 @@
                                                 <li>
                                                     <span class="lq-number">A</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part5_{{ $start + $loop->iteration }}" value="A">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-A" name="part5[{{ $start + $loop->iteration }}]" value="A">
                                                         <label for="choice{{ $start + $loop->iteration }}-A">{{$reading_part5->part5->choice_A}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">B</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part5_{{ $start + $loop->iteration }}" value="B">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-B" name="part5[{{ $start + $loop->iteration }}]" value="B">
                                                         <label for="choice{{ $start + $loop->iteration }}-B">{{$reading_part5->part5->choice_B}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">C</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part5_{{ $start + $loop->iteration }}" value="C">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-C" name="part5[{{ $start + $loop->iteration }}]" value="C">
                                                         <label for="choice{{ $start + $loop->iteration }}-C">{{$reading_part5->part5->choice_C}}</label>
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span class="lq-number">D</span>
                                                     <span class="my-radio">
-                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part5_{{ $start + $loop->iteration }}" value="D">
+                                                        <input type="radio" class="an_{{ $start + $loop->iteration }}" id="choice{{ $start + $loop->iteration }}-D" name="part5[{{ $start + $loop->iteration }}]" value="D">
                                                         <label for="choice{{ $start + $loop->iteration }}-D">{{$reading_part5->part5->choice_D}}</label>
                                                     </span>
                                                 </li>
@@ -392,28 +392,28 @@
                                                     <li>
                                                         <span class="lq-number">A</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-A" name="part6_{{ $start + $loop->index + 1}}" value="A">
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-A" name="part6[{{ $start + $loop->index + 1}}]" value="A">
                                                             <label for="choice{{ $start + $loop->index + 1}}-A">{{$part6->choice_A}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">B</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-B" name="part6_{{ $start + $loop->index + 1}}" value="B">
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-B" name="part6[{{ $start + $loop->index + 1}}]" value="B">
                                                             <label for="choice{{ $start + $loop->index + 1}}-B">{{$part6->choice_B}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">C</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-C" name="part6_{{ $start + $loop->index + 1}}" value="C">
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-C" name="part6[{{ $start + $loop->index + 1}}]" value="C">
                                                             <label for="choice{{ $start + $loop->index + 1}}-C">{{$part6->choice_C}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">D</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $start + $loop->index + 1 }}" id="choice{{ $start + $loop->iteration + $loop->parent->iteration}}-D" name="part6_{{ $start + $loop->iteration + $loop->parent->iteration}}" value="D">
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1 }}" id="choice{{ $start + $loop->iteration + 1}}-D" name="part6[{{ $start + $loop->index + 1}}]" value="D">
                                                             <label for="choice{{ $start + $loop->index + 1 }}-D">{{$part6->choice_D}}</label>
                                                         </span>
                                                     </li>
@@ -460,28 +460,28 @@
                                                     <li>
                                                         <span class="lq-number">A</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-A" name="part7_{{ $start + $loop->index + 1}}" value="A">
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-A" name="part7[{{ $start + $loop->index + 1}}]" value="A">
                                                             <label for="choice{{ $start + $loop->index + 1}}-A">{{$part7->choice_A}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">B</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-B" name="part7_{{ $start + $loop->index + 1}}" value="B">
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-B" name="part7[{{ $start + $loop->index + 1}}]" value="B">
                                                             <label for="choice{{ $start + $loop->index + 1}}-B">{{$part7->choice_B}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">C</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-C" name="part7_{{ $start + $loop->index + 1}}" value="C">
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-C" name="part7[{{ $start + $loop->index + 1}}]" value="C">
                                                             <label for="choice{{ $start + $loop->index + 1}}-C">{{$part7->choice_C}}</label>
                                                         </span>
                                                     </li>
                                                     <li>
                                                         <span class="lq-number">D</span>
                                                         <span class="my-radio">
-                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-D" name="part7_{{ $start + $loop->index + 1}}" value="D">
+                                                            <input type="radio" class="an_{{ $start + $loop->index + 1}}" id="choice{{ $start + $loop->index + 1}}-D" name="part7[{{ $start + $loop->index + 1}}]" value="D">
                                                             <label for="choice{{ $start + $loop->index + 1 }}-D">{{$part7->choice_D}}</label>
                                                         </span>
                                                     </li>

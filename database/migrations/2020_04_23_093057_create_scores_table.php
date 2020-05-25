@@ -14,15 +14,10 @@ class CreateScoresTable extends Migration
     public function up()
     {
         Schema::create('scores', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('part1');
-            $table->integer('part2');
-            $table->integer('part3');
-            $table->integer('part4');
-            $table->integer('part5');
-            $table->integer('part6');
-            $table->integer('part7');
+            $table->foreignId('exam_id')->references('id')->on('exams')->onDelete('cascade');
+            $table->integer('listening_correct_answers');
+            $table->integer('reading_correct_answers');
             $table->integer('final_score');
             $table->timestamps();
         });

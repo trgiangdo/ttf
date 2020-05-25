@@ -18,7 +18,7 @@ class ExamController extends Controller
     {
         return view(
             'exam.list',
-            ['exams' => Exam::paginate(10)]
+            ['exams' => Exam::orderByDesc('created_at')->paginate(10)]
         );
     }
 
@@ -75,7 +75,7 @@ class ExamController extends Controller
 
         return view(
             'exam.test', compact(
-                'listening_part1', 'listening_part2', 'listening_part3', 'listening_part4',
+                'id', 'listening_part1', 'listening_part2', 'listening_part3', 'listening_part4',
                 'readings_part5', 'readings_part6', 'readings_part7'
             )
         );
@@ -103,7 +103,7 @@ class ExamController extends Controller
         $readings_part7 = $exam->readings->where('Part', 7)->values();
         // ->values() trả về dữ liệu với index bắt đầu từ 0, khi json_encode sẽ trả về dạng Array
 
-        // TODO: truyền dữ liệu kèm với các bảng con theo dạng JSON
+        // * Truyền dữ liệu kèm với các bảng con theo dạng JSON
         /* e.g: listening_part1: {
             name: '...',
             example: {
@@ -166,6 +166,7 @@ class ExamController extends Controller
         $exam->deleteResources();
 
         $exam->delete();
+
         return redirect()->back()->with('status', __('message.edited'));
     }
 }

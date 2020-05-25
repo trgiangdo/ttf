@@ -23,6 +23,85 @@ class Exam extends Model
         return $this->hasMany('App\Exam\Reading');
     }
 
+    public function users()
+    {
+        return $this->belongsToMany('App\User', 'scores')
+                    ->using('App\Score')
+                    ->as('scores');
+    }
+
+    public function compareAnswer($choices)
+    {
+        $ques = 1;
+
+        $listening_correct_answers = 0;
+        $reading_correct_answers = 0;
+
+        foreach ($this->listenings as $listening) {
+            if ($listening->Part == "1") {
+                foreach ($listening->part1 as $part1) {
+                    if (isset($choices->part1[$ques]) and $choices->part1[$ques] == $part1->answer) {
+                        $listening_correct_answers += 1;
+                    }
+                    $ques += 1;
+                }
+            }
+            if ($listening->Part == "2") {
+                foreach ($listening->part2 as $part2) {
+                    if (isset($choices->part2[$ques]) and $choices->part2[$ques] == $part2->answer) {
+                        $listening_correct_answers += 1;
+                    }
+                    $ques += 1;
+                }
+            }
+            if ($listening->Part == "3") {
+                foreach ($listening->part3 as $part3) {
+                    if (isset($choices->part3[$ques]) and $choices->part3[$ques] == $part3->answer) {
+                        $listening_correct_answers += 1;
+                    }
+                    $ques += 1;
+                }
+            }
+            if ($listening->Part == "4") {
+                foreach ($listening->part4 as $part4) {
+                    if (isset($choices->part4[$ques]) and $choices->part4[$ques] == $part4->answer) {
+                        $listening_correct_answers += 1;
+                    }
+                    $ques += 1;
+                }
+            }
+        }
+
+        foreach ($this->readings as $reading) {
+            if ($reading->Part == "5") {
+                if (isset($choices->part5[$ques]) and $choices->part5[$ques] == $reading->part5->answer) {
+                    $reading_correct_answers += 1;
+                }
+                $ques += 1;
+            }
+            if ($reading->Part == "6") {
+                foreach ($reading->part6 as $part6) {
+                    if (isset($choices->part6[$ques]) and $choices->part6[$ques] == $part6->answer) {
+                        $reading_correct_answers += 1;
+                    }
+                    $ques += 1;
+                }
+            }
+            if ($reading->Part == "7") {
+                foreach ($reading->part7 as $part7) {
+                    if (isset($choices->part7[$ques]) and $choices->part7[$ques] == $part7->answer) {
+                        $reading_correct_answers += 1;
+                    }
+                    $ques += 1;
+                }
+            }
+        }
+
+        $final_score = $this->calculateFinalScore($listening_correct_answers, $reading_correct_answers);
+
+        return array($listening_correct_answers, $reading_correct_answers, $final_score);
+    }
+
     /**
      * Create a new Exam with $request contain all neccessery information
      * Request are validate through StoreExamRequest
@@ -414,6 +493,10 @@ class Exam extends Model
         }
     }
 
+    /**
+     * Delete all audio files and images belong to this exam
+     *
+     */
     public function deleteResources()
     {
         foreach ($this->listenings as $key => $listening) {
@@ -435,5 +518,13 @@ class Exam extends Model
                 Storage::disk('public')->delete($audio_path);
             }
         }
+    }
+
+    private function calculateFinalScore($listening_correct_answers, $reading_correct_answers)
+    {
+        $listening_conversion_table = [5, 5, 5, 5, 5, 5, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 135, 140, 145, 150, 155, 160, 165, 170, 180, 185, 190, 195, 200, 210, 220, 225, 230, 235, 240, 245, 250, 255, 260, 270, 275, 280, 285, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 360, 365, 370, 375, 380, 390, 395, 400, 405, 410, 420, 425, 430, 435, 440, 450, 455, 460, 470, 475, 480, 485, 490, 495, 495, 495, 495, 495, 495, 495, 495];
+        $reading_conversion_table = [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 90, 95, 100, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 170, 175, 180, 185, 195, 200, 205, 210, 220, 225, 230, 235, 240, 250, 255, 260, 270, 275, 280, 285, 290, 295, 300, 305, 310, 320, 325, 330, 335, 340, 345, 350, 355, 360, 365, 370, 375, 380, 385, 390, 395, 400, 405, 405, 410, 415, 420, 425, 430, 435, 445, 450, 455, 465, 470, 480, 485, 490, 495, 495, 495, 495];
+
+        return $listening_conversion_table[$listening_correct_answers] + $reading_conversion_table[$reading_correct_answers];
     }
 }

@@ -43,7 +43,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/user/role/{user}', 'UserController@editRole')->name('user.editRole');
     Route::put('/user/role/{user}', 'UserController@updateRole')->name('user.updateRole');
-    Route::post('/user/score', 'UserController@saveScore');
+
+    Route::post('/user/score/{exam}', 'UserController@saveScore')->name('user.saveScore');
 
     Route::resource('/user', 'UserController')->only([
         'index', 'destroy'

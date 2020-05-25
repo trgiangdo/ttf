@@ -3,6 +3,18 @@
 @section('content')
 
 <main>
+	@if(session('status'))
+        <div class="alert bg-success" role="alert">
+            {{session('status')}}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert bg-danger" role="alert">
+            {{session('error')}}<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+	@endif
+
 	<div class="container test">
 		<ul class="nav nav-tabs nav-justified">
 			<li class="active"><a data-toggle="tab" href="#home"><b>Thông tin cá nhân</b></a></li>

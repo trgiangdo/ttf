@@ -46,18 +46,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function isAdmin()
+    public function exams()
     {
-        return $this->role == 2;
-    }
-
-    public function scores()
-    {
-        return $this->hasMany('App\User\Score');
+        return $this->belongsToMany('App\Exam', 'scores')
+                    ->using('App\Score')
+                    ->as('scores');
     }
 
     public function skills()
     {
-        return $this->hasMany('App\User\Skill');
+        return $this->hasOne('App\User\Skill');
+    }
+
+    public function isAdmin()
+    {
+        return $this->role == 2;
     }
 }
