@@ -34,8 +34,10 @@ class UserController extends Controller
     public function show()
     {
         // $progress = SkillScore::where('id_user',Auth::id())->get();
-        // $score = Score::where('user_id', Auth::id())->get();
-        return view('homepage.profile');
+
+        $exams = Auth::user()->exams;
+
+        return view('homepage.profile', compact('exams'));
     }
 
     /**
@@ -116,17 +118,19 @@ class UserController extends Controller
         return redirect('user')->with('status', __('message.edited'));
     }
 
+    /**
+     * Save user's score after he's finished the exam
+     *
+     * @param Request $request
+     * @param array $exam_id
+     */
     public function saveScore(Request $request, $exam_id)
     {
-        // dd($request);
-
         $exam = Exam::find($exam_id);
 
         list($listening_correct_answers, $reading_correct_answers, $final_score) = $exam->compareAnswer($request);
-        // dd($listening_correct_answers);
 
-        $user = Auth::user();
-        $user->exams()->attach($exam_id, [
+        Auth::user()->exams()->attach($exam_id, [
             'listening_correct_answers' => $listening_correct_answers,
             'reading_correct_answers' => $reading_correct_answers,
             'final_score' => $final_score

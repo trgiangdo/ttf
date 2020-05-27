@@ -27,9 +27,21 @@ class Exam extends Model
     {
         return $this->belongsToMany('App\User', 'scores')
                     ->using('App\Score')
-                    ->as('scores');
+                    ->as('scores')
+                    ->withPivot([
+                        'listening_correct_answers',
+                        'reading_correct_answers',
+                        'final_score',
+
+                    ])->withTimestamps();
     }
 
+    /**
+     * Compare user's answers to correct answers and return scores
+     *
+     * @param  $choices
+     * @return list of number of correct answers each listening and reading part and final score
+     */
     public function compareAnswer($choices)
     {
         $ques = 1;
@@ -520,6 +532,13 @@ class Exam extends Model
         }
     }
 
+    /**
+     * Calculate final Toeic score
+     *
+     * @param int $listening_correct_answers
+     * @param int $reading_correct_answers
+     * @return int $final_score
+     */
     private function calculateFinalScore($listening_correct_answers, $reading_correct_answers)
     {
         $listening_conversion_table = [5, 5, 5, 5, 5, 5, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 135, 140, 145, 150, 155, 160, 165, 170, 180, 185, 190, 195, 200, 210, 220, 225, 230, 235, 240, 245, 250, 255, 260, 270, 275, 280, 285, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 360, 365, 370, 375, 380, 390, 395, 400, 405, 410, 420, 425, 430, 435, 440, 450, 455, 460, 470, 475, 480, 485, 490, 495, 495, 495, 495, 495, 495, 495, 495];

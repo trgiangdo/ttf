@@ -50,7 +50,13 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Exam', 'scores')
                     ->using('App\Score')
-                    ->as('scores');
+                    ->as('scores')
+                    ->withPivot([
+                        'listening_correct_answers',
+                        'reading_correct_answers',
+                        'final_score',
+
+                    ])->withTimestamps();
     }
 
     public function skills()
