@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Exam;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -131,8 +130,7 @@ class UserController extends Controller
 
         list($listening_correct_answers, $reading_correct_answers, $final_score) = $exam->compareAnswer($request);
 
-        $user = Auth::user();
-        $user->exams()->attach($exam_id, [
+        Auth::user()->exams()->attach($exam_id, [
             'listening_correct_answers' => $listening_correct_answers,
             'reading_correct_answers' => $reading_correct_answers,
             'final_score' => $final_score
